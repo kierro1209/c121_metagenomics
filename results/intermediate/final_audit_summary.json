@@ -1,0 +1,23 @@
+{
+  "generated_at_utc": "2026-11-24T04:16:18.002747+00:00",
+  "n_accuracy_records": 281,
+  "n_clinical_records": 233,
+  "n_article_clinical_specimens": 191,
+  "n_table6": 14,
+  "n_maintext7": 7,
+  "post_dtca_opa": "187/191 = 97.906%",
+  "stat_available": 279,
+  "final_consistency_status_counts": {
+    "unresolved_identifier_or_incomplete_metadata": 182,
+    "consistent": 87,
+    "inconsistent_sequence_vs_metadata": 6,
+    "article_discrepancy_adjudicated": 4,
+    "stat_unavailable": 2
+  },
+  "sequence_conflicts": 6,
+  "outputs": {
+    "audit_csv": "/workspace/results/accuracy_metadata_audit.csv",
+    "inconsistent_md": "/workspace/results/inconsistent_samples.md",
+    "report_md": "/workspace/results/metadata_consistency_report.md"
+  }
+}
