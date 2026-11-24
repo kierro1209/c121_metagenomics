@@ -1,0 +1,106 @@
+Sample_ID,viral_load,severity,Detected virus(es),virus subtype
+P-NP-3,18000000,0,Influenza A,Influenza_A
+P-NP-5,16000,1,RSV,RSV_A
+P-NP-11,1100000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-22,46000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-23,4300000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-40,160000,0,Influenza A,Influenza_A
+P-NP-41,470000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-60,42000000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-63,24000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-69,130000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-71,2500000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-73,41000000,0,SARS-CoV-2,SARS-CoV-2
+P-NP-84,83000,0,Rhinovirus,Rhinovirus_A
+P-NP-87,15000,0,Rhinovirus,Rhinovirus_C
+P-NP-89,5600,0,Rhinovirus,Rhinovirus_A
+P-NP-92,550000,0,Rhinovirus,Rhinovirus_C
+P-NP-95,16000,0,Rhinovirus,Rhinovirus_C
+P-NP-98,250000,0,Rhinovirus,Rhinovirus_A
+P-NP-114,6400,0,Parainfluenza virus,Respirovirus_3
+P-NP-116,1900,0,Parainfluenza virus,Respirovirus_3
+P-NP-119,170000,0,Metapneumovirus,Metapneumovirus
+BAL107,610000,0,Influenza A,Influenza_A
+BAL139,12000,0,Rhinovirus,Rhinovirus_A
+BAL147,1600000,0,Rhinovirus,Rhinovirus_A
+P-NP-6,5400000,0,Multiple Viruses,EV-D68_RSVB
+P-NP-7,3800000,1,Multiple Viruses,FluA_SARS-CoV-2
+P-NP-8,5200000000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-10,120000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-14,1800000,1,RSV,RSV_A
+P-NP-15,3600000,1,RSV,RSV_A
+P-NP-16,280000,1,Multiple Viruses,RhinoC_RSVA
+P-NP-17,540000000,1,Influenza A,Influenza_A
+P-NP-19,8600000,1,Influenza A,Influenza_A
+P-NP-25,19000000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-26,4400000,1,RSV,RSV_A
+P-NP-27,5500000,1,RSV,RSV_A
+P-NP-28,80000,1,Influenza A,Influenza_A
+P-NP-29,9600000,1,Influenza A,Influenza_A
+P-NP-34,6400000,1,RSV,RSV_A
+P-NP-35,220000,1,RSV,RSV_B
+P-NP-36,2500000,1,Adenovirus,Adenovirus_C
+P-NP-37,920000,1,RSV,RSV_A
+P-NP-42,4100000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-43,140,1,SARS-CoV-2,SARS-CoV-2
+P-NP-44,32000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-45,110000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-46,1500000,1,RSV,RSV_B
+P-NP-47,1700000,1,RSV,RSV_A
+P-NP-59,130000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-61,1400000,1,Multiple Viruses,SARS-CoV-2_RhinoC
+P-NP-62,1700000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-64,190000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-65,4300000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-68,190000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-70,84000000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-76,6300000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-78,10000000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-80,37000000,1,SARS-CoV-2,SARS-CoV-2
+P-NP-85,540000,1,Rhinovirus,Rhinovirus_A
+P-NP-90,1500,1,Rhinovirus,Rhinovirus_A
+P-NP-91,250000,1,Rhinovirus,Rhinovirus_A
+P-NP-96,70000,1,Rhinovirus,Rhinovirus_A
+P-NP-97,850000,1,Rhinovirus,Rhinovirus_A
+P-NP-101,130000,1,Rhinovirus,Rhinovirus_A
+P-NP-104,25,1,Parainfluenza virus,Respirovirus_1
+P-NP-105,150000,1,Parainfluenza virus,Respirovirus_3
+P-NP-106,790,1,Metapneumovirus,Metapneumovirus
+P-NP-107,680000,1,Parainfluenza virus,Respirovirus_1
+P-NP-108,680000,1,Adenovirus,Mastadenovirus_C
+P-NP-110,33000000,1,Adenovirus,Mastadenovirus_B
+P-NP-111,11000,1,Multiple Viruses,MastadenovirusC_RSVB
+P-NP-112,490000,1,Metapneumovirus,Metapneumovirus
+P-NP-117,240,1,Metapneumovirus,Metapneumovirus
+P-NP-121,1200000,1,Adenovirus,Mastadenovirus_C
+P-NP-122,57,1,Parainfluenza virus,Respirovirus_1
+BAL072,130000,1,Rhinovirus,Rhinovirus_A
+P-NP-1,12000000,2,Multiple Viruses,RSVA_RhinovirusB
+P-NP-2,150000000,2,RSV,RSV_A
+P-NP-13,62000000,2,Influenza A,Influenza_A
+P-NP-18,3200000,2,Influenza A,Influenza_A
+P-NP-20,490000,2,RSV,RSV_B
+P-NP-30,26000000,2,Influenza A,Influenza_A
+P-NP-31,3900000,2,Influenza A,Influenza_A
+P-NP-33,21000000,2,Influenza A,Influenza_A
+P-NP-38,46000000,2,RSV,RSV_B
+P-NP-66,2700000,2,SARS-CoV-2,SARS-CoV-2
+P-NP-67,11000000,2,SARS-CoV-2,SARS-CoV-2
+P-NP-74,25000000,2,SARS-CoV-2,SARS-CoV-2
+P-NP-75,63000000,2,SARS-CoV-2,SARS-CoV-2
+P-NP-79,25000000,2,SARS-CoV-2,SARS-CoV-2
+P-NP-83,5700,2,Multiple Viruses,RhinoA_MastadenovirusB
+P-NP-113,3600000,2,Multiple Viruses,MastadenovirusC_MPV_bocavirus
+P-NP-118,1800000,2,Metapneumovirus,Metapneumovirus
+P-NP-120,790,2,Metapneumovirus,Metapneumovirus
+BAL090,23000000,2,Rhinovirus,Rhinovirus_A
+P-NP-21,24000000,3,SARS-CoV-2,SARS-CoV-2
+P-NP-50,1400000,3,RSV,RSV_B
+P-NP-72,110000000,3,SARS-CoV-2,SARS-CoV-2
+P-NP-77,35000000,3,SARS-CoV-2,SARS-CoV-2
+P-NP-86,8200,3,Rhinovirus,Rhinovirus_C
+P-NP-94,200000000,3,Rhinovirus,Rhinovirus_A
+P-NP-102,87000000,3,Rhinovirus,Rhinovirus_A
+P-NP-115,2500000,3,Parainfluenza virus,Respirovirus_3
+N-NP-10,12000000,2,Metapneumovirus,Metapneumovirus
+N-NP-14,1200000,1,Adenovirus,Mastadenovirus_E

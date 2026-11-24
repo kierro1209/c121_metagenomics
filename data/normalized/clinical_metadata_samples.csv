@@ -1,0 +1,110 @@
+article_sample_id,source_row_start,source_row_end,metadata_line_count,sample_type,pcr_results,mngs_results,viral_load_copies_ml,clinical_diagnosis,disease_severity,symptoms,discrepancy_testing_ct,comments
+P-NP-1,2,3,2,upper respiratory swab,RSV+,RSV A+ || Rhinovirus B+,2000000 || 12000000,upper respiratory infection (croup),2,"cough,wheezing,fever,seal-like barking,",- || Rhinovirus = 22.3,Patient sample tested by Flu A/B/RSV PCR only
+P-NP-2,4,4,1,upper respiratory swab,RSV+,RSV A+,150000000,upper respiratory infection with otitis media,2,"wheezing, cough",-,-
+P-NP-3,5,5,1,upper respiratory swab,Flu A (H3) +,Flu A (H3N2) +,18000000,"pancytopenia, asymptomatic",0,"pancytopenia, asymptomatic",-,-
+P-NP-5,6,6,1,upper respiratory swab,RSV+,RSV A+,16000,upper respiratory infection,1,"sore throat, cough, lightheadedness without fever or SOB",-,-
+P-NP-6,7,8,2,upper respiratory swab,RSV+,RSV B+ || EVD68+,5400000 || 81000,ear pain,0,ear pain but no respiratory symptoms,- || Enterovirus = 36.7,Patient sample tested by Flu A/B/RSV PCR only
+P-NP-7,9,10,2,upper respiratory swab,Flu A (H3)+ || SARS-CoV-2 +,Flu A (H3)+ || SARS-CoV-2 +,19000 || 3800000,fever,1,"fever , chills, and headache",-,-
+P-NP-8,11,11,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,5200000000,upper respiratory infection,1,"cough, nasal congestion, fever",-,-
+P-NP-10,12,12,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,120000,hypervolemia with shortness of breath,1,"shortness of breath / dyspnea attributed to volume overload, on minimal oxygen",-,-
+P-NP-11,13,13,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,1100000,asymptomatic viral infection,0,tested positive for COVID-19 no symptoms,-,-
+P-NP-13,14,14,1,upper respiratory swab,Flu A+,Flu A+ (H3N2),62000000,upper respiratory infection,1,"fever, headache, vomiting, wheezing",-,-
+P-NP-14,15,15,1,upper respiratory swab,RSV +,RSV A+,1800000,bronchiolitis,2,"productive cough, fever, vomiting",-,-
+P-NP-15,16,16,1,upper respiratory swab,RSV A+,RSV+,3600000,upper respiratory infection,1,cough and nasal congestion,-,-
+P-NP-16,17,18,2,upper respiratory swab,Rhinovirus/Enterovirus+ || RSV+,Rhinovirus C+ || RSV A+,280000 || 67000,upper respiratory infection,1,"cough, congestion, fever",-,-
+P-NP-17,19,19,1,upper respiratory swab,Flu A+,Flu A+ (H3N2),540000000,upper respiratory infection,1,"fever, nasal congestion, cough",-,-
+P-NP-18,20,20,1,upper respiratory swab,Flu A+,Flu A+ (H3N2),3200000,bronchiolitis,2,"fever, cough, and hypoxia",-,-
+P-NP-19,21,22,2,upper respiratory swab,Flu A+ || ParainFluenza 3+,Flu A+ (H3N2) || ParainFluenza 3 not detected,8600000 || -,upper respiratory infection,1,"failure to thrive, cough, congestion",-,1 read detected for parainFluenza virus (subthreshold result)
+P-NP-20,23,23,1,upper respiratory swab,RSV B+,RSV B+,490000,bronchiolitis,2,"fever, cough, decreased oxygen saturations, bronchiolitis on CXR",-,-
+P-NP-21,24,24,1,upper respiratory swab,SARS-CoV-2+,SARS-CoV-2+,24000000,pneumonia with renal failure,3,"fever, SOB, and renal insufficiency",-,-
+P-NP-22,25,25,1,upper respiratory swab,SARS-CoV-2+,SARS-CoV-2+,46000,asymptomatic viral infection,0,no respiratory symptoms (recovered from COVID-19),-,-
+P-NP-23,26,27,2,upper respiratory swab,SARS-CoV-2+,SARS-CoV-2+ || Betaherpesvirus 7,4300000,asymptomatic viral infection,0,no respiratory symptoms (recovered from COVID-19),-,-
+P-NP-25,28,28,1,upper respiratory swab,SARS-CoV-2+,SARS-CoV-2+,19000000,upper respiratory infection,1,"congestion, rhinorrhea, sneezing, lymphopenic",-,-
+P-NP-26,29,29,1,upper respiratory swab,RSV +,RSV A+,4400000,upper respiratory infection,1,"cough, fever",-,-
+P-NP-27,30,30,1,upper respiratory swab,RSV +,RSV A+,5500000,upper respiratory infection,1,"fever, cough, runny nose",-,-
+P-NP-28,31,32,2,upper respiratory swab,Flu A+,Flu A+ (H3N2) || Papillomavirus Type 21,80000,upper respiratory infection,1,"cough, myalgias",-,-
+P-NP-29,33,33,1,upper respiratory swab,Flu A+,Flu A+ (H3N2),9600000,upper respiratory infection,1,"fever, nasal congestion",-,-
+P-NP-30,34,34,1,upper respiratory swab,Flu A+,Flu A+ (H3N2),26000000,upper respiratory infection with dehydration and electrolyte disturbances,2,"dehydration, poor oral intake, runny nose, cough, fever",-,-
+P-NP-31,35,35,1,upper respiratory swab,Flu A+,Flu A+ (H3N2),3900000,"fever, vomiting, and anorexia",2,"cough, fever, and vomiting",-,-
+P-NP-33,36,37,2,upper respiratory swab,Flu A+ || SARS-CoV-2+,Flu A+ || SARS-CoV-2 not detected,21000000 || -,fever and SOB,2,"fever, cough, SOB treated with dexamethasone",-,-
+P-NP-34,38,38,1,upper respiratory swab,RSV+,RSV A+,6400000,upper respiratory infection,1,"congestion, rhinorrhea, cough",-,-
+P-NP-35,39,39,1,upper respiratory swab,RSV+,RSV B+,220000,upper respiratory infection,1,fever,-,-
+P-NP-36,40,41,2,upper respiratory swab,RSV+,RSV not detected || Adenovirus C+,- || 2500000,fever,1,"fever, no congestion, no respiratory symptoms || fever, no congestive, no respiratory symptoms",-,Patient sample tested by Flu A/B/RSV PCR only
+P-NP-37,42,42,1,upper respiratory swab,RSV+,RSV A+,920000,upper respiratory infection,1,"fever, nasal congestion",-,-
+P-NP-38,43,43,1,upper respiratory swab,RSV+,RSV B+,46000000,bronchiolitis,2,"cough, vomiting, fever, bronchiolitis",-,-
+P-NP-40,44,45,2,upper respiratory swab,Flu A+,Flu A+ || Papillomavirus Type 70,160000,cardiogenic shock,0,cardiogenic shock with inFluenza A infection thoguht incidental,-,-
+P-NP-41,46,46,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,470000,asymptomatic viral infection,0,no symptoms; tested routinely found to be COVID-19 (+),-,-
+P-NP-42,47,47,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,4100000,upper respiratory infection,1,cough,-,-
+P-NP-43,48,48,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,140,upper respiratory infection,1,"cough, nausea, fatigue",-,-
+P-NP-44,49,49,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,32000,upper respiratory infection,1,cough,-,-
+P-NP-45,50,50,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,110000,upper respiratory infection,1,new diagnosis while in hospital with cough,-,-
+P-NP-46,51,52,2,upper respiratory swab,RSV B+,RSV B+ || Betaherpesvirus 7,1500000,upper respiratory infection,1,"cough, runny nose",-,-
+P-NP-47,53,53,1,upper respiratory swab,RSV A+,RSV A+,1700000,upper respiratory infection,1,"cough, congestion, fever",-,-
+P-NP-50,54,54,1,upper respiratory swab,RSV B+,RSV B+,1400000,respiratory failure and septic shock,3,respiratory failure and septic shock from RSV diagnosed 4 days prior,-,-
+P-NP-59,55,55,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,130000,upper respiratory infection,1,"fever, congestion, and cough",-,-
+P-NP-60,56,56,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,42000000,asymptomatic viral infection,0,asymptomatic COVID-19 on screening,-,-
+P-NP-61,57,58,2,upper respiratory swab,SARS-CoV-2 + and Rhinovirus +,SARS-CoV-2 + || Rhinovirus C,1400000 || 1200000,hypoxia and lymphoma-related lactic acidosis,1,hypoxia and lymphoma-related lactic acidosis,-,-
+P-NP-62,59,59,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,1700000,upper respiratory infection,1,"cough, malaise, fatigue, low-grade fever",-,-
+P-NP-63,60,60,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,24000,asymptomatic viral infection,0,orthopedic surgery; incidentally detected,-,-
+P-NP-64,61,61,1,upper respiratory swab,Flu A (H3) + and SARS-CoV-2 +,SARS-CoV-2 +,190000,fever,1,"fever, no respiratory symptoms, pregnant",-,-
+P-NP-65,62,62,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,4300000,upper respiratory infection,1,"cough, congestion",-,-
+P-NP-66,63,64,2,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 + || Papillomavirus,2700000,croup and generalized muscle weakness,2,"worsening cough, croup, worsening weakness in patient with myasthenia gravis due to COVID-19",-,-
+P-NP-67,65,66,2,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 + || Papillomavirus,11000000,pneumonia,2,"fatigue, weakness, vomiting, pneumonia, hospitalized",-,-
+P-NP-68,67,67,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,190000,upper respiratory infection,1,cough and weakness,-,-
+P-NP-69,68,68,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,130000,asymptomatic viral infection,0,asymptomatic COVID-19 in a hospitalized patient,-,-
+P-NP-70,69,69,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,84000000,upper respiratory infection,1,"myagias, congestion, subjective fevers",-,-
+P-NP-71,70,70,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,2500000,asymptomatic viral infection,0,asymptomatic COVID-19 in a hospitalized patient,-,-
+P-NP-72,71,71,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,110000000,pneumonia,3,cardiopulmonary failure with worsneing pneumonia due to COVID-19,-,-
+P-NP-73,72,72,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,41000000,asymptomatic viral infection,0,asymptomatic COVID-19 in patient with brain mass,-,-
+P-NP-74,73,73,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,25000000,pneumonia,2,shortness of breath with COVID-19 pneumonia,-,-
+P-NP-75,74,74,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,63000000,pneumonia,2,"SOB, dry cough, and palpitations",-,-
+P-NP-76,75,75,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,6300000,upper respiratory infection,1,mild COVID-19 symptoms,-,-
+P-NP-77,76,76,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,35000000,pneumonia,3,"fever, cough, SOB evolving into respiratory failure",-,-
+P-NP-78,77,77,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,10000000,upper respiratory infection,1,"cough, runny nose in patient with B-cell aplasia status-post CAR-T therapy",-,-
+P-NP-79,78,78,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,25000000,lower respiratory infection,2,hypoxia,-,-
+P-NP-80,79,79,1,upper respiratory swab,SARS-CoV-2 +,SARS-CoV-2 +,37000000,upper respiratory infection,1,mild illness from COVID-19,-,-
+N-NP-10,80,80,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus,,pneumonia,2,"fever, cough, exam suggestive of L-sided pneumonia",-,-
+N-NP-14,81,81,1,upper respiratory swab,Adenovirus +,Mastadenovirus E,,upper respiratory infection,1,"Fever, sore throat, cough, nasal congestion, and rhinorrhea",-,-
+P-NP-83,82,83,2,upper respiratory swab,Rhinovirus/Enterovirus + and Adenovirus +,Rhinovirus A || Mastadenovirus B,5700 || 860,bronchiolitis (croup),2,"croup requiring decadron and rac epi in setting of adenovirus, re-presenting with increased stridor found to be rhinovirus +",-,-
+P-NP-84,84,85,2,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A || CMV,83000,asymptomatic viral infection,0,"persistently rhinovirus positive, no symptoms",-,-
+P-NP-85,86,88,3,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A || CMV || Papillomavirus,540000,upper respiratory infection,1,cough,-,-
+P-NP-86,89,89,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus C,8200,bronchiolitis,3,severe wheezing and hypoxia requiring treatment in ICU,-,-
+P-NP-87,90,90,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus C,15000,asymptomatic viral infection,0,asymptomatic rhinovirus infection,-,-
+P-NP-89,91,91,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A,5600,asymptomatic viral infection,0,asymptomaticc rhinovirus infection,-,-
+P-NP-90,92,93,2,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A || CMV,1500,upper respiratory infection,1,"dry cough, no oxygen requirement",-,-
+P-NP-91,94,94,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A,250000,upper respiratory infection,1,cough and nasal congestion,-,-
+P-NP-92,95,95,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus C,550000,asymptomatic viral infection,0,asymptomatic rhinovirus infection,-,-
+P-NP-94,96,96,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A,200000000,hypoxic respiratory failure,3,hypoxic respiratory failure,-,-
+P-NP-95,97,97,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus C,16000,asymptomatic viral infection,0,asymptomatic rhinovirus infection,-,-
+P-NP-96,98,99,2,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A || Papillomavirus Type 36,70000,cough,1,chronic infection with 1 month of non-productive cough,-,-
+P-NP-97,100,101,2,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A || Papillomavirus,850000,cough,1,chronic infection with 1 month of non-productive cough,-,-
+P-NP-98,102,102,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A,250000,asymptomatic rhinovirus infection,0,asymptomatic rhinovirus infection,-,-
+P-NP-99,103,103,1,upper respiratory swab,Rhinovirus/Enterovirus +,Respiratory virus not detected,-,upper respiratory infection,1,mild worsening of chronic lung disease\,-,False Negative
+P-NP-100,104,104,1,upper respiratory swab,Rhinovirus/Enterovirus +,Respiratory virus not detected,-,upper respiratory infection,1,positive rhinovirus with cough,-,False Negative
+P-NP-101,105,105,1,upper respiratory swab,Rhinovirus/Enterovirus + and ParainFluenza 2+,Rhinovirus A,130000,upper respiratory infection,1,"cough, congestion",-,-
+P-NP-102,106,106,1,upper respiratory swab,Rhinovirus/Enterovirus +,Rhinovirus A,87000000,apnea and cyanosis from respiratory infection,3,"patient with apnea, cyanosis, and bradycardia, intubated in the emergency department for increasing frequency of apneas, hypercarbia, and somnolence.",-,-
+P-NP-104,107,107,1,upper respiratory swab,ParainFluenza 1,Respirovirus 1,25,neutropenic fever,1,neutropenic fever,-,-
+P-NP-105,108,108,1,upper respiratory swab,ParainFluenza 3,Respirovirus 3,150000,"cough, increased secretions",1,cough and increased secretions in a patient intubated for a non-infectious reason,-,-
+P-NP-106,109,109,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus,790,upper respiratory infection,1,"runny nose, cough, head congestion",-,-
+P-NP-107,110,110,1,upper respiratory swab,ParainFluenza 1,Respirovirus 1,680000,upper respiratory infection,1,"fever, congestion, cough",-,-
+P-NP-108,111,111,1,upper respiratory swab,Adenovirus +,Mastadenovirus C,680000,upper respiratory infection,1,"fever, nasal congestion",-,-
+P-NP-109,112,112,1,upper respiratory swab,Metapneumovirus +,Respiratory virus not detected,0,hypoxic respiratory failure,-,hypoxic respiratory failure from COVID-19 and RSV,-,False Negative
+P-NP-110,113,113,1,upper respiratory swab,Adenovirus +,Mastadenovirus B,33000000,upper respiratory infection,1,"fever, night sweats",-,-
+P-NP-111,114,115,2,upper respiratory swab,Adenovirus + || RSV+,Mastadenovirus C || RSV B,11000 || 170,upper respiratory infection,1,"fever, congestion, bulging tympanic membrane",-,-
+P-NP-112,116,116,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus,490000,upper respiratory infection,1,"fever, cough",-,-
+P-NP-113,117,119,3,upper respiratory swab,Adenovirus + || MPV+,Mastadenovirus C || Metapneumovirus || Bocavirus,3600000 || 16000 || 140000,bronchiolitis,2,"fever, wheezing",- || Not Detected,-
+P-NP-114,120,120,1,upper respiratory swab,ParainFluenza 3,Respirovirus 3; Merkel Cell Polyomavirus,6400,asymptomatic viral infection,0,"chronic hypersensitivity pneumonitis, improving",-,-
+P-NP-115,121,121,1,upper respiratory swab,ParainFluenza 3,Respirovirus 3,2500000,respiratory failure with intubation / mechanical ventilation,3,respiratory failure with intubation / mechanical ventilation,-,-
+P-NP-116,122,122,1,upper respiratory swab,ParainFluenza 3,Respirovirus 3; Merkel Cell Polyomavirus,1900,dizziness and hypotension,0,dizziness and hypotension unrelated to respiratory infection,-,-
+P-NP-117,123,123,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus,240,upper respiratory infection,1,"cough, congestion, fever, no supplemental oxygen needed",-,-
+P-NP-118,124,124,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus,1800000,respiratory distress with hypoxia,2,respiratory distress with hypoxia,-,-
+P-NP-119,125,125,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus,170000,cardiogenic shock,0,cardiogenic shock unrelated to respiratory infection,-,-
+P-NP-120,126,126,1,upper respiratory swab,Metapneumovirus +,Metapneumovirus; CMV,790,"cough, congestionn, and hypoxia",2,"cough, congestionn, and hypoxia",-,-
+P-NP-121,127,127,1,upper respiratory swab,Adenovirus +,Mastadenovirus C,1200000,upper respiratory infection,1,fever,-,-
+P-NP-122,128,128,1,upper respiratory swab,ParainFluenza 1,Respirovirus 1,57,upper respiratory infection,1,"fever, congestion, first-time seizure",-,-
+BAL072,129,130,2,bronchoalveolar lavage Fluid,Rhinovirus/Enterovirus +,"Rhinovirus A || Alphaherpesvirus 1, CMV, Betaherpesvirus 7",130000,upper respiratory infection,1,"chronic cough, SOB",-,-
+BAL090,131,131,1,bronchoalveolar lavage Fluid,Rhinovirus/Enterovirus +,Rhinovirus A,23000000,pneumonia,2,pneumonia with increased opacities in right upper lobes,-,-
+BAL105,132,132,1,bronchoalveolar lavage Fluid,RSV A+,Respiratory virus not detected; CMV,-,asymptomatic viral infection,0,history of RSV infection,-,False Negative
+BAL107,133,133,1,bronchoalveolar lavage Fluid,Flu A+,Flu A (H1N1),610000,non-infectious pneumonitis with sporadic detection of inFluenza A virus,0,non-infectious pneumonitis with sporadic detection of inFluenza A virus,-,-
+BAL139,134,134,1,bronchoalveolar lavage Fluid,Rhinovirus/Enterovirus +,Rhinovirus A,12000,asymptomatic viral infection,0,rhinovirus not thought to be involved in patient's disease,-,-
+BAL147,135,135,1,bronchoalveolar lavage Fluid,Rhinovirus/Enterovirus +,Rhinovirus A,1600000,asymptomatic viral infection,0,rhinovirus not thought to be involved in patient's disease,-,-

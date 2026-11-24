@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-11-24T03:49:28.862261+00:00",
+  "scope": "assemble-manifest only; no FASTQ audit and no final discrepancy report",
+  "selection_rule": "Zenodo master sheet Purpose exactly equals 'Accuracy'",
+  "counts": {
+    "accuracy_sequencing_records": 281,
+    "unique_fastq_file_names": 281,
+    "clinical_sequencing_records": 233,
+    "control_sequencing_records": 48,
+    "positive_control_records": 24,
+    "negative_control_records": 24,
+    "observed_clinical_specimen_keys_before_alias_resolution": 206,
+    "rerun_or_replicate_records": 27,
+    "unique_master_original_ids": 210,
+    "unique_normalized_identifiers": 210,
+    "supplementary_clinical_lines": 134,
+    "supplementary_clinical_sample_ids": 109,
+    "expected_article_clinical_specimens": 191,
+    "unambiguous_non_repeat_run_specimen_keys": 186,
+    "explicit_repeat_run_clinical_records": 20,
+    "repeat_run_records_linked_to_initial_accuracy": 16,
+    "unresolved_NP_NUC_identifiers": 79,
+    "figure2c_context_rows": 105
+  },
+  "known_mapping_limitations": [
+    "Supplementary Data 1 contains 109 explicit sample IDs across 134 result lines, while the paper describes 110 virus-positive samples and the normalized sequencing master contains 191 clinical specimens.",
+    "79 NP/NUC identifiers cannot be paired to the article's P-NP identifiers from the published files alone. They remain stable specimen keys and are not orphaned FASTQ rows.",
+    "The 191 article-cohort count structurally reconciles as 186 unambiguous non-repeat-run specimen keys plus 5 members of the 20 clinical records in explicit repeat run 039. The published metadata do not identify which 5; all 20 are retained and flagged."
+  ],
+  "sources": {
+    "zenodo_master": {
+      "filename": "respmNGS-sequencing-mastersheet.xlsx",
+      "url": "https://zenodo.org/api/records/10553379/files/respmNGS-sequencing-mastersheet.xlsx/content",
+      "landing_page": "https://zenodo.org/records/10553379",
+      "role": "Sequencing record master sheet; Purpose filter and run identifiers",
+      "expected_md5": "6c315aadb1c80d9433e8cdcd625e711a",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/respmNGS-sequencing-mastersheet.xlsx",
+      "bytes": 110039,
+      "sha256": "10bfb73ada4fd9a87f8335d532c8a036674f82300527c0f351ff7acd560d8762",
+      "retrieved_or_verified_at_utc": "2026-11-24T03:49:27.412794+00:00"
+    },
+    "supplementary_data_1": {
+      "filename": "41467_2024_51470_MOESM4_ESM.xlsx",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM4_ESM.xlsx",
+      "landing_page": "https://www.nature.com/articles/s41467-024-51470-y",
+      "role": "Clinical and laboratory metadata (Supplementary Data 1)",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM4_ESM.xlsx",
+      "bytes": 21044,
+      "sha256": "ed87b95b307c0a0e167d5a4779e1a09a190939bad11eb3abcb4fd3afbbd0297f",
+      "retrieved_or_verified_at_utc": "2026-11-24T03:49:27.412794+00:00"
+    },
+    "supplementary_information": {
+      "filename": "41467_2024_51470_MOESM1_ESM.pdf",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM1_ESM.pdf",
+      "landing_page": "https://www.nature.com/articles/s41467-024-51470-y",
+      "role": "Supplementary Tables 1-8, including discrepancy Tables 6-7",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM1_ESM.pdf",
+      "bytes": 295561,
+      "sha256": "3ddd17f680954a6514a7e652f2dec2b06817042f775158812f5af8238a2d0e78",
+      "retrieved_or_verified_at_utc": "2026-11-24T03:49:27.412794+00:00"
+    },
+    "figure_source_data": {
+      "filename": "41467_2024_51470_MOESM6_ESM.xlsx",
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM6_ESM.xlsx",
+      "landing_page": "https://www.nature.com/articles/s41467-024-51470-y",
+      "role": "Figure source data; contextual, not complete clinical metadata",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM6_ESM.xlsx",
+      "bytes": 15643,
+      "sha256": "8ceeaa5aa47cf90df0ec0ac0c6764cc6bdf1cd1d34a586b99ea38c50839bbd3a",
+      "retrieved_or_verified_at_utc": "2026-11-24T03:49:27.412794+00:00"
+    },
+    "sra_runinfo": {
+      "filename": "PRJNA1084017_runinfo.csv",
+      "url": "https://trace.ncbi.nlm.nih.gov/Traces/sra-db-be/runinfo?acc=PRJNA1084017",
+      "landing_page": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1084017",
+      "role": "SRA/BioSample accessions and read metadata for sequence retrieval",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/PRJNA1084017_runinfo.csv",
+      "bytes": 1029654,
+      "sha256": "9ca53d667e8b5dfe5e0492073cc720295d533367e9b9d58f09621e1c24487d2f",
+      "retrieved_or_verified_at_utc": "2026-11-24T03:49:27.412794+00:00"
+    }
+  }
+}
