@@ -1,0 +1,10 @@
+---
+description: Run delegated agents in Cursor cloud for this project
+alwaysApply: true
+---
+
+# Cloud agents only
+
+When launching Task/subagents for this repository, always set `environment: "cloud"` unless the user explicitly asks for a local agent.
+
+Prefer basing cloud agents on the remote branch `audit-sample-metadata` (or the current feature branch once it exists on the remote). Do not continue long-running audit, download, or report work with local agents.
