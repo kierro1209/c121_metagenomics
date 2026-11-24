@@ -17,3 +17,4 @@ Thumbs.db
 .vscode/
 *.log
 results/tmp/
+results/intermediate/stat_cache/

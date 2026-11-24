@@ -1,0 +1,86 @@
+{
+  "generated_at_utc": "2026-11-24T04:19:12.173292+00:00",
+  "scope": "audit-sequences via NCBI STAT public run_taxonomy; no FASTQ download",
+  "selection_rule": "all Purpose=Accuracy rows from accuracy_manifest.csv",
+  "counts": {
+    "accuracy_records_audited": 281,
+    "stat_fetch_success": 279,
+    "stat_fetch_failed": 2,
+    "clinical_records": 233,
+    "positive_controls": 24,
+    "negative_controls": 24,
+    "rerun_or_replicate_records": 27,
+    "records_with_article_discrepancy_flag": 4,
+    "candidate_sequence_inconsistencies": 4
+  },
+  "consistency_class_counts": {
+    "sequence_profiled_no_supp_data1_join": 105,
+    "sequence_profiled_metadata_unresolved": 77,
+    "consistent_sequence_supports_declared_organisms": 47,
+    "consistent_positive_control_virus_detected": 24,
+    "consistent_negative_control": 22,
+    "inconsistent_sequence_vs_control_label": 2,
+    "possible_inconsistent_sequence_vs_metadata": 2,
+    "audit_incomplete": 2
+  },
+  "flag_counts": {
+    "sequence_metadata_conflict": 2,
+    "possible_sequence_metadata_conflict": 2,
+    "below_threshold_near_miss": 2,
+    "extra_on_panel_stat_detection": 4,
+    "article_reported_discrepancy": 4,
+    "stat_fetch_failed": 2
+  },
+  "evidence_rule": {
+    "min_stat_count": 3,
+    "note": "STAT self_count/total_count >=3 is a public proxy for the article criterion of >=3 non-overlapping reads/contigs; not identical."
+  },
+  "outputs": {
+    "audit_csv": "results/intermediate/accuracy_sequence_audit.csv",
+    "audit_json": "results/intermediate/accuracy_sequence_audit.json",
+    "virus_hits_csv": "results/intermediate/accuracy_stat_virus_hits.csv",
+    "summary_json": "results/intermediate/accuracy_sequence_audit_summary.json",
+    "stat_cache_dir": "results/intermediate/stat_cache"
+  },
+  "limitations": [
+    "STAT k-mer taxonomy counts are a proxy, not a reimplementation of the paper's read/contig pipeline.",
+    "79 NP/NUC identifiers remain without published P-NP crosswalks; those runs are profiled but not clinically compared.",
+    "Supplementary Data 1 covers 109 sample IDs; many Accuracy clinical records lack joined organism labels.",
+    "Off-panel detections (CMV, papillomavirus, herpesviruses, bocavirus) are reported but not auto-labeled false positives.",
+    "No FASTQ re-analysis was performed; ENA/SRA FASTQ fallback was not required for STAT coverage."
+  ],
+  "candidate_inconsistency_runs": [
+    {
+      "Run": "SRR28234621",
+      "File_Name": "UCSF_VRP_mNGS_039_0891_nohuman.fastq.gz",
+      "Original_ID": "NC-2",
+      "article_sample_id": "",
+      "consistency_class": "inconsistent_sequence_vs_control_label",
+      "notes": "Negative control has respiratory pathogen STAT evidence >=3: sars_cov_2(Severe acute respiratory syndrome coronavirus 2:20)"
+    },
+    {
+      "Run": "SRR28241899",
+      "File_Name": "UCSF_VRP_mNGS_050_1109_nohuman.fastq.gz",
+      "Original_ID": "P-NP-14",
+      "article_sample_id": "P-NP-14",
+      "consistency_class": "possible_inconsistent_sequence_vs_metadata",
+      "notes": "Declared organisms lacking STAT evidence >=3: rsv; found=none Below-threshold near-miss taxa: Orthopneumovirus:1/1"
+    },
+    {
+      "Run": "SRR28242341",
+      "File_Name": "UCSF_VRP_mNGS_067_1335_nohuman.fastq.gz",
+      "Original_ID": "BAL139",
+      "article_sample_id": "BAL139",
+      "consistency_class": "possible_inconsistent_sequence_vs_metadata",
+      "notes": "Declared organisms lacking STAT evidence >=3: rhinovirus; found=none Below-threshold near-miss taxa: Rhinovirus A:2/2"
+    },
+    {
+      "Run": "SRR28242480",
+      "File_Name": "UCSF_VRP_mNGS_074_1500_nohuman.fastq.gz",
+      "Original_ID": "NC-2",
+      "article_sample_id": "",
+      "consistency_class": "inconsistent_sequence_vs_control_label",
+      "notes": "Negative control has respiratory pathogen STAT evidence >=3: adenovirus(Mastadenovirus:3)"
+    }
+  ]
+}
