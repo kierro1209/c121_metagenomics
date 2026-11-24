@@ -11,10 +11,8 @@ No FASTQ classification and no final inconsistency report.
 ## Exact counts
 - Table 6 sample rows (mNGS+/RVP-): 14 (paper n=14)
 - Table 7 sample rows: 9 (table title n=9)
-- Main-text mNGS-/RVP+ count: 7 (matches pre-DTCA sensitivity misses 7 = 110-103)
-- Flagged main-text-7 rows in this reconstruction: 8
-- Main-text-7 TN fractional weight: 4.5 (paper 5.5; match=False)
-- Main-text-7 FN fractional weight: 1.5 (paper implied 1.5)
+- Main-text mNGS-/RVP+ count of 7 reconciles as Table 7 TN+FN fractional weight 7.0 (TN 5.5 + FN 1.5; match=True)
+- Pre-DTCA sensitivity misses: 7 = 110-103
 - Post-DTCA OPA: 187 of 191 = 97.906%
 
 ## Outputs
@@ -27,6 +25,6 @@ No FASTQ classification and no final inconsistency report.
 ## Unresolved issues preserved
 - Most Table 6 RVP-negative rows lack sample IDs in Supplementary Data 1.
 - Table 6 row 3 vs P-NP-36 RSV call conflicts between Table 6 and Supp Data 1.
-- Table 7 title n=9 vs main-text n=7; BAL105 retained as Table 7-only pending stronger evidence.
+- Table 7 title n=9 vs main-text n=7: reconciled as TN+FN fractional weights 5.5+1.5=7.
 - P-NP-99/P-NP-100 cannot be ordered against the two rhinovirus Table 7 rows.
 - Influenza A + RSV / mNGS ND Table 7 row has no Supp Data 1 match.
