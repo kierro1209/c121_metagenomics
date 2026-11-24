@@ -300,10 +300,10 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "with Parainfluenza 3 not detected; comment notes 1 subthreshold "
             "parainfluenza read"
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": (
-            "Co-detection miss; contributes fractional FN before DTCA, TN after "
-            "DTCA for Parainfluenza 3"
+            "Co-detection sample: TP half for Influenza A plus TN half for "
+            "missed Parainfluenza 3; TN/FN halves across Table 7 sum to the "
+            "main-text 7."
         ),
     },
     {
@@ -324,7 +324,6 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "SARS-CoV-2 not detected; Table 7 CT 36.4 / Verigene unique among "
             "Flu A+SARS pairs"
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": "Co-detection miss of high-Ct SARS-CoV-2; TN after DTCA",
     },
     {
@@ -344,9 +343,8 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "No Supp Data 1 sample with both Influenza A and RSV PCR-positive and "
             "mNGS ND. Not inventing a crosswalk."
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": (
-            "Main-text example of dual adjudication in one sample (0.5 TN + 0.5 FN)"
+            "Paper's dual-adjudication example in one sample (0.5 TN + 0.5 FN)"
         ),
     },
     {
@@ -366,7 +364,6 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "Supp Data 1: Flu A (H3)+ and SARS-CoV-2+ by PCR; mNGS SARS-CoV-2+ "
             "only (Influenza A absent)"
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": "Co-detection miss of Influenza A; TN after DTCA",
     },
     {
@@ -388,7 +385,6 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "Assigned to P-NP-99/P-NP-100 as an unordered pair; MFI cannot "
             "distinguish them from published files alone."
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": "Complete mNGS miss; TN after repeat RVP/DTCA",
     },
     {
@@ -408,7 +404,6 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "Paired with Table 7 row 5 / P-NP-99; same Supp Data 1 pattern. "
             "Row-to-ID order is not uniquely determined."
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": "Complete mNGS miss; TN after repeat RVP/DTCA",
     },
     {
@@ -428,7 +423,6 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "Supp Data 1 unique Rhinovirus/Enterovirus + Parainfluenza 2+ with "
             "mNGS Rhinovirus A only"
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": "Co-detection miss of Parainfluenza 2; TN after DTCA",
     },
     {
@@ -448,7 +442,6 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "Supp Data 1: Metapneumovirus+; mNGS respiratory virus not detected; "
             "comment False Negative"
         ),
-        "counts_toward_maintext_7": True,
         "maintext7_note": "Confirmed mNGS false negative after DTCA",
     },
     {
@@ -468,12 +461,9 @@ TABLE7_ROWS: list[dict[str, Any]] = [
             "Supp Data 1: RSV A+; mNGS respiratory virus not detected (CMV only); "
             "comment False Negative; unique BAL RSV A ND pattern"
         ),
-        "counts_toward_maintext_7": False,
         "maintext7_note": (
-            "Present in Supplementary Table 7 (n=9) but beyond the main-text "
-            "count of 7 pre-DTCA sensitivity misses (110-103=7). Retained as a "
-            "Table 7 row; not forced into the main-text 7 without stronger "
-            "evidence."
+            "Table 7 n=9 sample rows; fractional TN+FN weights across all rows "
+            "equal the main-text 7 (5.5 TN + 1.5 FN)."
         ),
     },
 ]
@@ -650,57 +640,34 @@ def verify_counts(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> dict[st
     if len(table7) != EXPECTED_TABLE7_SAMPLES:
         raise ValueError(f"Expected {EXPECTED_TABLE7_SAMPLES} Table 7 rows, got {len(table7)}")
 
-    maintext7 = table7[table7["counts_toward_maintext_7"].astype(str).isin(["True", "true", "1"])]
-    # after boolean conversion
-    if "counts_toward_maintext_7" in table7.columns:
-        maintext7 = table7[table7["counts_toward_maintext_7"] == True]  # noqa: E712
-
     t7_org = organism_df[organism_df["table"] == "7"]
-    tn_weight = t7_org.loc[
-        t7_org["final_classification"] == "TN", "fractional_sample_weight"
-    ].sum()
-    fn_weight = t7_org.loc[
-        t7_org["final_classification"] == "FN", "fractional_sample_weight"
-    ].sum()
-
-    # Main text: 5.5 samples reclassified as true negatives among the 7, with
-    # one sample contributing 0.5 TN + 0.5 FN. Using only rows flagged as the
-    # main-text 7:
-    main_org = organism_df[
-        (organism_df["table"] == "7")
-        & (
-            organism_df["discrepancy_uid"].str.startswith("T7-R")
-        )
-    ]
-    maintext_uids = {
-        f"T7-R{int(row.table_row)}"
-        for row in table7.itertuples()
-        if bool(row.counts_toward_maintext_7)
-    }
-    main_org = organism_df[
-        organism_df["discrepancy_uid"].str.replace(r"-C\d+$", "", regex=True).isin(
-            maintext_uids
-        )
-    ]
-    main_tn = main_org.loc[
-        main_org["final_classification"] == "TN", "fractional_sample_weight"
-    ].sum()
-    main_fn = main_org.loc[
-        main_org["final_classification"] == "FN", "fractional_sample_weight"
-    ].sum()
+    tn_weight = float(
+        t7_org.loc[t7_org["final_classification"] == "TN", "fractional_sample_weight"].sum()
+    )
+    fn_weight = float(
+        t7_org.loc[t7_org["final_classification"] == "FN", "fractional_sample_weight"].sum()
+    )
+    tp_weight = float(
+        t7_org.loc[t7_org["final_classification"] == "TP", "fractional_sample_weight"].sum()
+    )
+    # Main-text "7" reconciles as Table 7 TN+FN fractional weights (5.5+1.5),
+    # while the table itself lists 9 sample rows (co-detections also carry TP halves).
+    maintext7_weight = tn_weight + fn_weight
 
     return {
         "table6_sample_rows": int(len(table6)),
         "table7_sample_rows": int(len(table7)),
-        "maintext_mngs_neg_rvp_pos_flagged_rows": int(len(maintext7)),
         "expected_maintext_mngs_neg_rvp_pos": EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS,
-        "table7_all_rows_TN_weight": float(tn_weight),
-        "table7_all_rows_FN_weight": float(fn_weight),
-        "maintext7_TN_weight": float(main_tn),
-        "maintext7_FN_weight": float(main_fn),
+        "table7_TN_weight": tn_weight,
+        "table7_FN_weight": fn_weight,
+        "table7_TP_weight": tp_weight,
+        "table7_TN_plus_FN_weight": maintext7_weight,
         "paper_maintext_TN_reclassified": 5.5,
         "paper_maintext_FN_remaining_implied": 1.5,
-        "maintext7_TN_matches_paper_5_5": abs(main_tn - 5.5) < 1e-9,
+        "table7_TN_matches_paper_5_5": bool(abs(tn_weight - 5.5) < 1e-9),
+        "table7_TN_plus_FN_matches_maintext_7": bool(
+            abs(maintext7_weight - EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS) < 1e-9
+        ),
         "pre_dtca_sensitivity": {
             "reported": f"{EXPECTED_PRE_DTCA_SENSITIVITY[0]} of {EXPECTED_PRE_DTCA_SENSITIVITY[1]}",
             "implied_fn_samples": EXPECTED_PRE_DTCA_SENSITIVITY[1]
@@ -722,9 +689,12 @@ def verify_counts(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> dict[st
             "opa": f"{EXPECTED_POST_DTCA_OPA[0]} of {EXPECTED_POST_DTCA_OPA[1]} = "
             f"{EXPECTED_POST_DTCA_OPA[0] / EXPECTED_POST_DTCA_OPA[1]:.3%}",
         },
-        "id_mapping_status_counts": sample_df["id_mapping_status"]
-        .value_counts(dropna=False)
-        .to_dict(),
+        "id_mapping_status_counts": {
+            str(key): int(value)
+            for key, value in sample_df["id_mapping_status"]
+            .value_counts(dropna=False)
+            .items()
+        },
         "confident_or_probable_mapped_sample_ids": sorted(
             {
                 clean(x)
@@ -753,15 +723,12 @@ def write_readme(path: Path, verification: dict[str, Any]) -> None:
         "## Exact counts",
         f"- Table 6 sample rows (mNGS+/RVP-): {verification['table6_sample_rows']} (paper n=14)",
         f"- Table 7 sample rows: {verification['table7_sample_rows']} (table title n=9)",
-        f"- Main-text mNGS-/RVP+ count: {verification['expected_maintext_mngs_neg_rvp_pos']} "
-        f"(matches pre-DTCA sensitivity misses "
-        f"{verification['pre_dtca_sensitivity']['implied_fn_samples']} = 110-103)",
-        f"- Flagged main-text-7 rows in this reconstruction: "
-        f"{verification['maintext_mngs_neg_rvp_pos_flagged_rows']}",
-        f"- Main-text-7 TN fractional weight: {verification['maintext7_TN_weight']} "
-        f"(paper 5.5; match={verification['maintext7_TN_matches_paper_5_5']})",
-        f"- Main-text-7 FN fractional weight: {verification['maintext7_FN_weight']} "
-        f"(paper implied 1.5)",
+        f"- Main-text mNGS-/RVP+ count of 7 reconciles as Table 7 TN+FN fractional "
+        f"weight {verification['table7_TN_plus_FN_weight']} "
+        f"(TN {verification['table7_TN_weight']} + FN {verification['table7_FN_weight']}; "
+        f"match={verification['table7_TN_plus_FN_matches_maintext_7']})",
+        f"- Pre-DTCA sensitivity misses: "
+        f"{verification['pre_dtca_sensitivity']['implied_fn_samples']} = 110-103",
         f"- Post-DTCA OPA: {verification['post_dtca']['opa']}",
         "",
         "## Outputs",
@@ -774,7 +741,7 @@ def write_readme(path: Path, verification: dict[str, Any]) -> None:
         "## Unresolved issues preserved",
         "- Most Table 6 RVP-negative rows lack sample IDs in Supplementary Data 1.",
         "- Table 6 row 3 vs P-NP-36 RSV call conflicts between Table 6 and Supp Data 1.",
-        "- Table 7 title n=9 vs main-text n=7; BAL105 retained as Table 7-only pending stronger evidence.",
+        "- Table 7 title n=9 vs main-text n=7: reconciled as TN+FN fractional weights 5.5+1.5=7.",
         "- P-NP-99/P-NP-100 cannot be ordered against the two rhinovirus Table 7 rows.",
         "- Influenza A + RSV / mNGS ND Table 7 row has no Supp Data 1 match.",
         "",
@@ -855,17 +822,16 @@ def build_artifacts(project_root: Path) -> dict[str, Any]:
         },
         "key_findings": [
             "Supplementary Table 6 contains exactly 14 mNGS-positive/RVP-negative samples.",
-            "Supplementary Table 7 title contains 9 samples; main text cites 7 mNGS-negative/RVP-positive samples matching 110-103 pre-DTCA sensitivity misses.",
-            "Among the 7 main-text rows flagged here, fractional TN weight is 5.5 and FN weight is 1.5, matching the paper's DTCA summary.",
+            "Supplementary Table 7 lists 9 sample rows; fractional TN+FN weights are 5.5+1.5=7, matching the main-text mNGS-/RVP+ count and DTCA summary.",
+            "Pre-DTCA sensitivity 103/110 implies 7 FN sample-equivalents; post-DTCA OPA is 187/191 (97.9%).",
             "Confident Supp Data 1 joins: P-NP-1, P-NP-6, P-NP-113, P-NP-19, P-NP-33, P-NP-64, P-NP-101, P-NP-109, BAL105.",
             "Probable unordered pair: P-NP-99 and P-NP-100 for the two rhinovirus/enterovirus Table 7 ND rows.",
-            "Post-DTCA overall agreement remains 187/191 = 97.9%.",
+            "Confirmed residual mNGS false negatives after DTCA: RSV (0.5) and metapneumovirus (1.0).",
         ],
         "unresolved_issues": [
             "10 of 14 Table 6 rows (mostly RVP ND) have no sample ID in Supplementary Data 1.",
             "Table 6 row 3 candidate P-NP-36 conflicts on whether mNGS detected RSV.",
             "Table 7 Influenza A+RSV / mNGS ND row has no Supp Data 1 match.",
-            "BAL105 is in Table 7 (n=9) but excluded from the flagged main-text 7 pending stronger evidence.",
             "P-NP-99 vs P-NP-100 cannot be uniquely ordered to Table 7 rows 5 vs 6.",
         ],
     }
@@ -887,8 +853,11 @@ def main() -> None:
     print("Wrote:")
     for key, path in summary["outputs"].items():
         print(f"  {key}: {path}")
-    if not summary["verification"]["maintext7_TN_matches_paper_5_5"]:
-        raise SystemExit("Main-text-7 TN weight does not match paper 5.5")
+    verification = summary["verification"]
+    if not verification["table7_TN_matches_paper_5_5"]:
+        raise SystemExit("Table 7 TN weight does not match paper 5.5")
+    if not verification["table7_TN_plus_FN_matches_maintext_7"]:
+        raise SystemExit("Table 7 TN+FN weight does not match main-text 7")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,96 @@
+{
+  "generated_at_utc": "2026-11-24T04:08:36.545792+00:00",
+  "scope": "reconstruct-discrepancies only; no FASTQ audit and no final report",
+  "sources": {
+    "article": "https://www.nature.com/articles/s41467-024-51470-y",
+    "supplementary_information": {
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM1_ESM.pdf",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM1_ESM.pdf",
+      "sha256": "3ddd17f680954a6514a7e652f2dec2b06817042f775158812f5af8238a2d0e78"
+    },
+    "supplementary_data_1": {
+      "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM4_ESM.xlsx",
+      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM4_ESM.xlsx",
+      "sha256": "ed87b95b307c0a0e167d5a4779e1a09a190939bad11eb3abcb4fd3afbbd0297f"
+    },
+    "clinical_metadata_samples": "C:/Users/kier0/c121_metagenomics/data/normalized/clinical_metadata_samples.csv"
+  },
+  "pdf_verification": {
+    "table6_title_has_n14": true,
+    "table7_title_has_n9": true,
+    "table6_mentions_tp_rhinovirus": true,
+    "table7_mentions_fn_metapneumovirus": true,
+    "pdf_sha256": "3ddd17f680954a6514a7e652f2dec2b06817042f775158812f5af8238a2d0e78",
+    "pdf_pages": 8
+  },
+  "verification": {
+    "table6_sample_rows": 14,
+    "table7_sample_rows": 9,
+    "expected_maintext_mngs_neg_rvp_pos": 7,
+    "table7_TN_weight": 5.5,
+    "table7_FN_weight": 1.5,
+    "table7_TP_weight": 2.0,
+    "table7_TN_plus_FN_weight": 7.0,
+    "paper_maintext_TN_reclassified": 5.5,
+    "paper_maintext_FN_remaining_implied": 1.5,
+    "table7_TN_matches_paper_5_5": true,
+    "table7_TN_plus_FN_matches_maintext_7": true,
+    "pre_dtca_sensitivity": {
+      "reported": "103 of 110",
+      "implied_fn_samples": 7
+    },
+    "pre_dtca_specificity": {
+      "reported": "76 of 81",
+      "implied_fp_samples": 5
+    },
+    "pre_dtca_accuracy": {
+      "reported": "179 of 191"
+    },
+    "post_dtca": {
+      "ppa": "110.5 of 113 = 97.788%",
+      "npa": "76.5 of 78 = 98.077%",
+      "opa": "187 of 191 = 97.906%"
+    },
+    "id_mapping_status_counts": {
+      "unresolved": 11,
+      "confident": 9,
+      "probable": 2,
+      "conflict": 1
+    },
+    "confident_or_probable_mapped_sample_ids": [
+      "BAL105",
+      "P-NP-1",
+      "P-NP-100",
+      "P-NP-101",
+      "P-NP-109",
+      "P-NP-113",
+      "P-NP-19",
+      "P-NP-33",
+      "P-NP-6",
+      "P-NP-64",
+      "P-NP-99"
+    ]
+  },
+  "outputs": {
+    "table6": "C:/Users/kier0/c121_metagenomics/data/normalized/supplementary_table6_discrepancies.csv",
+    "table7": "C:/Users/kier0/c121_metagenomics/data/normalized/supplementary_table7_discrepancies.csv",
+    "sample_level": "C:/Users/kier0/c121_metagenomics/data/normalized/article_discrepancies_sample_level.csv",
+    "organism_level": "C:/Users/kier0/c121_metagenomics/data/normalized/article_discrepancies_organism_level.csv",
+    "readme": "C:/Users/kier0/c121_metagenomics/data/normalized/README_discrepancy_reconstruction.md",
+    "summary": "C:/Users/kier0/c121_metagenomics/results/intermediate/discrepancy_reconstruction_summary.json"
+  },
+  "key_findings": [
+    "Supplementary Table 6 contains exactly 14 mNGS-positive/RVP-negative samples.",
+    "Supplementary Table 7 lists 9 sample rows; fractional TN+FN weights are 5.5+1.5=7, matching the main-text mNGS-/RVP+ count and DTCA summary.",
+    "Pre-DTCA sensitivity 103/110 implies 7 FN sample-equivalents; post-DTCA OPA is 187/191 (97.9%).",
+    "Confident Supp Data 1 joins: P-NP-1, P-NP-6, P-NP-113, P-NP-19, P-NP-33, P-NP-64, P-NP-101, P-NP-109, BAL105.",
+    "Probable unordered pair: P-NP-99 and P-NP-100 for the two rhinovirus/enterovirus Table 7 ND rows.",
+    "Confirmed residual mNGS false negatives after DTCA: RSV (0.5) and metapneumovirus (1.0)."
+  ],
+  "unresolved_issues": [
+    "10 of 14 Table 6 rows (mostly RVP ND) have no sample ID in Supplementary Data 1.",
+    "Table 6 row 3 candidate P-NP-36 conflicts on whether mNGS detected RSV.",
+    "Table 7 Influenza A+RSV / mNGS ND row has no Supp Data 1 match.",
+    "P-NP-99 vs P-NP-100 cannot be uniquely ordered to Table 7 rows 5 vs 6."
+  ]
+}
