@@ -1,19 +1,25 @@
 {
-  "generated_at_utc": "2026-11-24T04:08:36.545792+00:00",
+  "generated_at_utc": "2026-11-24T04:13:02.032814+00:00",
   "scope": "reconstruct-discrepancies only; no FASTQ audit and no final report",
+  "exact_counts": {
+    "mngs_positive_rvp_negative": 14,
+    "mngs_negative_rvp_positive_maintext": 7,
+    "table7_sample_rows_published": 9,
+    "maintext7_tn_fn_weight": 7.0
+  },
   "sources": {
     "article": "https://www.nature.com/articles/s41467-024-51470-y",
     "supplementary_information": {
       "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM1_ESM.pdf",
-      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM1_ESM.pdf",
+      "local_path": "data/raw/41467_2024_51470_MOESM1_ESM.pdf",
       "sha256": "3ddd17f680954a6514a7e652f2dec2b06817042f775158812f5af8238a2d0e78"
     },
     "supplementary_data_1": {
       "url": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-024-51470-y/MediaObjects/41467_2024_51470_MOESM4_ESM.xlsx",
-      "local_path": "C:/Users/kier0/c121_metagenomics/data/raw/41467_2024_51470_MOESM4_ESM.xlsx",
+      "local_path": "data/raw/41467_2024_51470_MOESM4_ESM.xlsx",
       "sha256": "ed87b95b307c0a0e167d5a4779e1a09a190939bad11eb3abcb4fd3afbbd0297f"
     },
-    "clinical_metadata_samples": "C:/Users/kier0/c121_metagenomics/data/normalized/clinical_metadata_samples.csv"
+    "clinical_metadata_samples": "data/normalized/clinical_metadata_samples.csv"
   },
   "pdf_verification": {
     "table6_title_has_n14": true,
@@ -25,7 +31,9 @@
   },
   "verification": {
     "table6_sample_rows": 14,
+    "table6_mngs_pos_rvp_neg_count": 14,
     "table7_sample_rows": 9,
+    "maintext_mngs_neg_rvp_pos_count": 7,
     "expected_maintext_mngs_neg_rvp_pos": 7,
     "table7_TN_weight": 5.5,
     "table7_FN_weight": 1.5,
@@ -35,6 +43,27 @@
     "paper_maintext_FN_remaining_implied": 1.5,
     "table7_TN_matches_paper_5_5": true,
     "table7_TN_plus_FN_matches_maintext_7": true,
+    "exact_counts": {
+      "mngs_positive_rvp_negative_samples": 14,
+      "mngs_negative_rvp_positive_maintext_equivalents": 7,
+      "table7_published_sample_rows": 9,
+      "reconciliation": "Main-text 7 = Table 7 TN fractional weight 5.5 + FN fractional weight 1.5; Table 7 lists 9 sample rows because co-detections also contribute TP halves that are not part of the 7."
+    },
+    "sample_field_completeness": {
+      "required_fields": [
+        "discrepancy_class",
+        "rvp_organisms",
+        "mngs_organisms",
+        "discrepancy_testing",
+        "final_mngs_by_dtca",
+        "chart_adjudication",
+        "explanation",
+        "id_mapping_status",
+        "id_mapping_evidence"
+      ],
+      "samples_checked": 23,
+      "all_required_fields_present": true
+    },
     "pre_dtca_sensitivity": {
       "reported": "103 of 110",
       "implied_fn_samples": 7
@@ -72,16 +101,20 @@
     ]
   },
   "outputs": {
-    "table6": "C:/Users/kier0/c121_metagenomics/data/normalized/supplementary_table6_discrepancies.csv",
-    "table7": "C:/Users/kier0/c121_metagenomics/data/normalized/supplementary_table7_discrepancies.csv",
-    "sample_level": "C:/Users/kier0/c121_metagenomics/data/normalized/article_discrepancies_sample_level.csv",
-    "organism_level": "C:/Users/kier0/c121_metagenomics/data/normalized/article_discrepancies_organism_level.csv",
-    "readme": "C:/Users/kier0/c121_metagenomics/data/normalized/README_discrepancy_reconstruction.md",
-    "summary": "C:/Users/kier0/c121_metagenomics/results/intermediate/discrepancy_reconstruction_summary.json"
+    "table6": "data/normalized/supplementary_table6_discrepancies.csv",
+    "table7": "data/normalized/supplementary_table7_discrepancies.csv",
+    "sample_level": "data/normalized/article_discrepancies_sample_level.csv",
+    "organism_level": "data/normalized/article_discrepancies_organism_level.csv",
+    "maintext7_tn_fn": "data/normalized/article_discrepancies_maintext7_tn_fn.csv",
+    "unresolved_ids": "data/normalized/article_discrepancies_unresolved_ids.csv",
+    "case_cards": "results/intermediate/discrepancy_case_cards.json",
+    "readme": "data/normalized/README_discrepancy_reconstruction.md",
+    "summary": "results/intermediate/discrepancy_reconstruction_summary.json"
   },
   "key_findings": [
-    "Supplementary Table 6 contains exactly 14 mNGS-positive/RVP-negative samples.",
-    "Supplementary Table 7 lists 9 sample rows; fractional TN+FN weights are 5.5+1.5=7, matching the main-text mNGS-/RVP+ count and DTCA summary.",
+    "Exact counts verified: 14 mNGS+/RVP- (Table 6) and 7 mNGS-/RVP+ main-text equivalents (Table 7 TN 5.5 + FN 1.5).",
+    "Supplementary Table 7 publishes 9 sample rows; co-detection TP halves are excluded from the main-text 7.",
+    "All 23 Table 6+7 sample rows have organism, orthogonal/repeat PCR, chart adjudication, final classification, and concise explanation fields.",
     "Pre-DTCA sensitivity 103/110 implies 7 FN sample-equivalents; post-DTCA OPA is 187/191 (97.9%).",
     "Confident Supp Data 1 joins: P-NP-1, P-NP-6, P-NP-113, P-NP-19, P-NP-33, P-NP-64, P-NP-101, P-NP-109, BAL105.",
     "Probable unordered pair: P-NP-99 and P-NP-100 for the two rhinovirus/enterovirus Table 7 ND rows.",
@@ -91,6 +124,7 @@
     "10 of 14 Table 6 rows (mostly RVP ND) have no sample ID in Supplementary Data 1.",
     "Table 6 row 3 candidate P-NP-36 conflicts on whether mNGS detected RSV.",
     "Table 7 Influenza A+RSV / mNGS ND row has no Supp Data 1 match.",
-    "P-NP-99 vs P-NP-100 cannot be uniquely ordered to Table 7 rows 5 vs 6."
+    "P-NP-99 vs P-NP-100 cannot be uniquely ordered to Table 7 rows 5 vs 6.",
+    "Published Zenodo/article files provide no NP/NUC\u2194P-NP crosswalk; unresolved lab IDs remain flagged in unresolved_identifier_mappings.csv and were not invented."
   ]
 }

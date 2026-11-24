@@ -17,3 +17,6 @@ Thumbs.db
 .vscode/
 *.log
 results/tmp/
+data/normalized/stat/run_taxonomy_cache/
+data/normalized/stat/harvest.duckdb*
+data/normalized/stat/*.parquet

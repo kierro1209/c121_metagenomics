@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-11-24T04:12:53.930059+00:00",
+  "source_api": "https://www.ncbi.nlm.nih.gov/Traces/sra-db-be/run_taxonomy",
+  "threshold": 3,
+  "n_runs_requested": 281,
+  "n_stat_available": 279,
+  "n_fetch_errors": 2,
+  "counts_by_record_role": {
+    "clinical_sample": 233,
+    "positive_control": 24,
+    "negative_control": 24
+  },
+  "counts_by_sequence_vs_metadata": {
+    "sequence_only_no_metadata_target": 182,
+    "consistent": 88,
+    "conflict": 6,
+    "partial": 3,
+    "unavailable": 2
+  },
+  "counts_by_audit_call": {
+    "clinical_no_threshold_pathogen": 101,
+    "clinical_sequence_signal_without_joined_metadata": 81,
+    "clinical_targets_supported": 43,
+    "pc_targets_detected": 22,
+    "nc_clean": 22,
+    "clinical_partial_support": 3,
+    "nc_contamination_or_mislabeled": 2,
+    "pc_unexpected": 2,
+    "clinical_target_mismatch": 2,
+    "stat_unavailable": 2,
+    "clinical_nd_supported": 1
+  },
+  "limitations": [
+    "STAT total_count is a k-mer/spot taxonomy count, not SURPI+ non-overlapping genomic coverage.",
+    "Threshold >=3 total_count is used as a proxy for the paper's >=3 non-overlapping reads/contigs rule.",
+    "Deposited FASTQs are human-depleted (nohuman); STAT reflects that composition.",
+    "Do not invent NP/NUC to P-NP crosswalks; unresolved aliases remain metadata-incomplete."
+  ],
+  "outputs": {
+    "detail": "/workspace/data/normalized/stat/accuracy_stat_audit_detail.csv",
+    "summary": "/workspace/data/normalized/stat/accuracy_stat_audit_summary.csv",
+    "errors": "/workspace/data/normalized/stat/accuracy_stat_fetch_errors.csv",
+    "cache_dir": "/workspace/data/normalized/stat/run_taxonomy_cache"
+  }
+}

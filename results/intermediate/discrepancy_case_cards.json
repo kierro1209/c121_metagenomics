@@ -1,0 +1,643 @@
+[
+  {
+    "case_uid": "T6-R1",
+    "table": "6",
+    "table_row": 1,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "P-NP-1",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: RSV+ by PCR; RSV A+ and Rhinovirus B+ by mNGS; orthogonal Rhinovirus Ct=22.3; comment Flu A/B/RSV PCR only",
+    "organisms_rvp": "RSV",
+    "organisms_mngs": "RSV; Rhinovirus B",
+    "orthogonal_or_repeat_pcr": "(+) Rhinovirus",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP RSV; TP Rhinovirus.",
+    "final_classification": "TP RSV; TP Rhinovirus",
+    "concise_explanation": "Table 6 row 1: RVP[RSV] vs mNGS[RSV; Rhinovirus B]. Orthogonal/repeat testing: (+) Rhinovirus. Final mNGS by DTCA: TP RSV; TP Rhinovirus.",
+    "organism_calls": [
+      {
+        "organism": "RSV",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Rhinovirus"
+      },
+      {
+        "organism": "Rhinovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Rhinovirus"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R2",
+    "table": "6",
+    "table_row": 2,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "P-NP-6",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: RSV+ by PCR; RSV B+ and EVD68+ by mNGS; orthogonal Enterovirus Ct=36.7; comment Flu A/B/RSV PCR only",
+    "organisms_rvp": "RSV",
+    "organisms_mngs": "RSV; EV-D68",
+    "orthogonal_or_repeat_pcr": "(+) Enterovirus",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP RSV; TP Enterovirus.",
+    "final_classification": "TP RSV; TP Enterovirus",
+    "concise_explanation": "Table 6 row 2: RVP[RSV] vs mNGS[RSV; EV-D68]. Orthogonal/repeat testing: (+) Enterovirus. Final mNGS by DTCA: TP RSV; TP Enterovirus.",
+    "organism_calls": [
+      {
+        "organism": "RSV",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Enterovirus"
+      },
+      {
+        "organism": "Enterovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Enterovirus"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R3",
+    "table": "6",
+    "table_row": 3,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "P-NP-36",
+    "id_mapping_status": "conflict",
+    "id_mapping_evidence": "Only Supp Data 1 RSV+/Adenovirus-C candidate with Flu A/B/RSV-only comment, but Supp Data 1 lists mNGS 'RSV not detected' while Table 6 and DTCA require mNGS RSV detection (TP RSV). Mapping retained as conflicted candidate only.",
+    "organisms_rvp": "RSV",
+    "organisms_mngs": "RSV; Adenovirus C",
+    "orthogonal_or_repeat_pcr": "(+) Adenovirus",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP RSV; TP Adenovirus.",
+    "final_classification": "TP RSV; TP Adenovirus",
+    "concise_explanation": "Table 6 row 3: RVP[RSV] vs mNGS[RSV; Adenovirus C]. Orthogonal/repeat testing: (+) Adenovirus. Final mNGS by DTCA: TP RSV; TP Adenovirus. ID mapping conflict: Only Supp Data 1 RSV+/Adenovirus-C candidate with Flu A/B/RSV-only comment, but Supp Data 1 lists mNGS 'RSV not detected' while Table 6 and DTCA require mNGS RSV detection (TP RSV). Mapping retained as conflicted candidate only.",
+    "organism_calls": [
+      {
+        "organism": "RSV",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Adenovirus"
+      },
+      {
+        "organism": "Adenovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Adenovirus"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R4",
+    "table": "6",
+    "table_row": 4,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "P-NP-113",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: Adenovirus+/MPV+ by PCR; Mastadenovirus C, Metapneumovirus, and Bocavirus by mNGS; Bocavirus orthogonal Not Detected",
+    "organisms_rvp": "Adenovirus; Metapneumovirus",
+    "organisms_mngs": "Adenovirus C; Metapneumovirus; Bocavirus",
+    "orthogonal_or_repeat_pcr": "Bocavirus ND",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Bocavirus mNGS reads are specific to the viral genus. Patient with clinical syndrome consistent with acute viral infection. Final classification(s): TP Adenovirus; TP Metapneumovirus; TP Bocavirus.",
+    "final_classification": "TP Adenovirus; TP Metapneumovirus; TP Bocavirus",
+    "concise_explanation": "Table 6 row 4: RVP[Adenovirus; Metapneumovirus] vs mNGS[Adenovirus C; Metapneumovirus; Bocavirus]. Orthogonal/repeat testing: Bocavirus ND. Bocavirus mNGS reads are specific to the viral genus. Patient with clinical syndrome consistent with acute viral infection. Final mNGS by DTCA: TP Adenovirus; TP Metapneumovirus; TP Bocavirus.",
+    "organism_calls": [
+      {
+        "organism": "Adenovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.3333333333333333,
+        "orthogonal_or_repeat_testing": "Bocavirus ND"
+      },
+      {
+        "organism": "Metapneumovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.3333333333333333,
+        "orthogonal_or_repeat_testing": "Bocavirus ND"
+      },
+      {
+        "organism": "Bocavirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.3333333333333333,
+        "orthogonal_or_repeat_testing": "Bocavirus ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R5",
+    "table": "6",
+    "table_row": 5,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; Supp Data 1 enumerates virus-positive samples and does not identify this negative-cohort specimen.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Coronavirus OC43",
+    "orthogonal_or_repeat_pcr": "Coronavirus OC43 ND",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Detected by mNGS x2 with high RPM and high coverage. No evidence of cross-contamination. Patient with clinical syndrome consistent with acute respiratory viral infection. Final classification(s): TP Coronavirus OC43.",
+    "final_classification": "TP Coronavirus OC43",
+    "concise_explanation": "Table 6 row 5: RVP[ND] vs mNGS[Coronavirus OC43]. Orthogonal/repeat testing: Coronavirus OC43 ND. Detected by mNGS x2 with high RPM and high coverage. No evidence of cross-contamination. Patient with clinical syndrome consistent with acute respiratory viral infection. Final mNGS by DTCA: TP Coronavirus OC43. ID mapping unresolved: RVP-negative case; Supp Data 1 enumerates virus-positive samples and does not identify this negative-cohort specimen.",
+    "organism_calls": [
+      {
+        "organism": "Coronavirus OC43",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "Coronavirus OC43 ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R6",
+    "table": "6",
+    "table_row": 6,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Coronavirus OC43",
+    "orthogonal_or_repeat_pcr": "(+) Coronavirus OC43",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP Coronavirus OC43.",
+    "final_classification": "TP Coronavirus OC43",
+    "concise_explanation": "Table 6 row 6: RVP[ND] vs mNGS[Coronavirus OC43]. Orthogonal/repeat testing: (+) Coronavirus OC43. Final mNGS by DTCA: TP Coronavirus OC43. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Coronavirus OC43",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "(+) Coronavirus OC43"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R7",
+    "table": "6",
+    "table_row": 7,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Rhinovirus A",
+    "orthogonal_or_repeat_pcr": "(+) Rhinovirus",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP Rhinovirus.",
+    "final_classification": "TP Rhinovirus",
+    "concise_explanation": "Table 6 row 7: RVP[ND] vs mNGS[Rhinovirus A]. Orthogonal/repeat testing: (+) Rhinovirus. Final mNGS by DTCA: TP Rhinovirus. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Rhinovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "(+) Rhinovirus"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R8",
+    "table": "6",
+    "table_row": 8,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Rhinovirus A",
+    "orthogonal_or_repeat_pcr": "(+) Rhinovirus",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP Rhinovirus.",
+    "final_classification": "TP Rhinovirus",
+    "concise_explanation": "Table 6 row 8: RVP[ND] vs mNGS[Rhinovirus A]. Orthogonal/repeat testing: (+) Rhinovirus. Final mNGS by DTCA: TP Rhinovirus. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Rhinovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "(+) Rhinovirus"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R9",
+    "table": "6",
+    "table_row": 9,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Coronavirus HKU1",
+    "orthogonal_or_repeat_pcr": "Coronavirus HKU1 ND",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): FP Coronavirus HKU1.",
+    "final_classification": "FP Coronavirus HKU1",
+    "concise_explanation": "Table 6 row 9: RVP[ND] vs mNGS[Coronavirus HKU1]. Orthogonal/repeat testing: Coronavirus HKU1 ND. Final mNGS by DTCA: FP Coronavirus HKU1. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Coronavirus HKU1",
+        "final_classification": "FP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "Coronavirus HKU1 ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R10",
+    "table": "6",
+    "table_row": 10,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Coronavirus HKU1",
+    "orthogonal_or_repeat_pcr": "(+) Coronavirus HKU1",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP Coronavirus HKU1.",
+    "final_classification": "TP Coronavirus HKU1",
+    "concise_explanation": "Table 6 row 10: RVP[ND] vs mNGS[Coronavirus HKU1]. Orthogonal/repeat testing: (+) Coronavirus HKU1. Final mNGS by DTCA: TP Coronavirus HKU1. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Coronavirus HKU1",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "(+) Coronavirus HKU1"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R11",
+    "table": "6",
+    "table_row": 11,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Parainfluenza 1; SARS-CoV-2",
+    "orthogonal_or_repeat_pcr": "(+) Parainfluenza 1; SARS-CoV-2 ND",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TP Parainfluenza 1; FP SARS-CoV-2.",
+    "final_classification": "TP Parainfluenza 1; FP SARS-CoV-2",
+    "concise_explanation": "Table 6 row 11: RVP[ND] vs mNGS[Parainfluenza 1; SARS-CoV-2]. Orthogonal/repeat testing: (+) Parainfluenza 1; SARS-CoV-2 ND. Final mNGS by DTCA: TP Parainfluenza 1; FP SARS-CoV-2. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Parainfluenza 1",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Parainfluenza 1; SARS-CoV-2 ND"
+      },
+      {
+        "organism": "SARS-CoV-2",
+        "final_classification": "FP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Parainfluenza 1; SARS-CoV-2 ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R12",
+    "table": "6",
+    "table_row": 12,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Coronavirus NL63",
+    "orthogonal_or_repeat_pcr": "(+) Coronavirus NL63",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: TP Coronavirus NL63.",
+    "final_classification": "TP Coronavirus NL63",
+    "concise_explanation": "Table 6 row 12: RVP[ND] vs mNGS[Coronavirus NL63]. Orthogonal/repeat testing: (+) Coronavirus NL63. Final mNGS by DTCA: TP Coronavirus NL63. ID mapping unresolved: RVP-negative case; no published sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Coronavirus NL63",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "(+) Coronavirus NL63"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R13",
+    "table": "6",
+    "table_row": 13,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative rhinovirus C primer-mismatch case described in text/Fig. 7 without an explicit sample ID in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Rhinovirus C",
+    "orthogonal_or_repeat_pcr": "Rhinovirus ND",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Mismatches in the forward primer and probe sequences for rhinovirus/enterovirus PCR. No evidence of contamination. Patient with clinical syndrome consistent with acute respiratory viral infection. Related main-text Fig. 7 (12 non-overlapping reads). Final classification(s): TP Rhinovirus.",
+    "final_classification": "TP Rhinovirus",
+    "concise_explanation": "Table 6 row 13: RVP[ND] vs mNGS[Rhinovirus C]. Orthogonal/repeat testing: Rhinovirus ND. Mismatches in the forward primer and probe sequences for rhinovirus/enterovirus PCR. No evidence of contamination. Patient with clinical syndrome consistent with acute respiratory viral infection. Related main-text Fig. 7 (12 non-overlapping reads). Final mNGS by DTCA: TP Rhinovirus. ID mapping unresolved: RVP-negative rhinovirus C primer-mismatch case described in text/Fig. 7 without an explicit sample ID in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Rhinovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "Rhinovirus ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T6-R14",
+    "table": "6",
+    "table_row": 14,
+    "discrepancy_class": "mNGS_positive_RVP_negative",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "RVP-negative case; orthogonal testing not performed; no sample-ID crosswalk in Supp Data 1.",
+    "organisms_rvp": "ND",
+    "organisms_mngs": "Coronavirus OC43",
+    "orthogonal_or_repeat_pcr": "NT",
+    "discrepancy_testing_platform": "",
+    "chart_adjudication": "Final classification(s) after DTCA: NA Coronavirus OC43.",
+    "final_classification": "NA Coronavirus OC43",
+    "concise_explanation": "Table 6 row 14: RVP[ND] vs mNGS[Coronavirus OC43]. Orthogonal/repeat testing: NT. Final mNGS by DTCA: NA Coronavirus OC43. ID mapping unresolved: RVP-negative case; orthogonal testing not performed; no sample-ID crosswalk in Supp Data 1.",
+    "organism_calls": [
+      {
+        "organism": "Coronavirus OC43",
+        "final_classification": "NA",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "NT"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.0
+  },
+  {
+    "case_uid": "T7-R1",
+    "table": "7",
+    "table_row": 1,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-19",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: Flu A+ and Parainfluenza 3+ by PCR; mNGS Flu A+(H3N2) with Parainfluenza 3 not detected; comment notes 1 subthreshold parainfluenza read",
+    "organisms_rvp": "Influenza A; Parainfluenza 3",
+    "organisms_mngs": "Influenza A",
+    "orthogonal_or_repeat_pcr": "(+) Influenza A; Parainfluenza 3 ND",
+    "discrepancy_testing_platform": "MagPix",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TP Influenza A; TN Parainfluenza 3.",
+    "final_classification": "TP Influenza A; TN Parainfluenza 3",
+    "concise_explanation": "Table 7 row 1: RVP[Influenza A; Parainfluenza 3] vs mNGS[Influenza A]. Orthogonal/repeat testing: (+) Influenza A; Parainfluenza 3 ND. Platform: MagPix. Final mNGS by DTCA: TP Influenza A; TN Parainfluenza 3.",
+    "organism_calls": [
+      {
+        "organism": "Influenza A",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Influenza A; Parainfluenza 3 ND"
+      },
+      {
+        "organism": "Parainfluenza 3",
+        "final_classification": "TN",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Influenza A; Parainfluenza 3 ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.5
+  },
+  {
+    "case_uid": "T7-R2",
+    "table": "7",
+    "table_row": 2,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-33",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: Flu A+ and SARS-CoV-2+ by PCR; mNGS Flu A+ with SARS-CoV-2 not detected; Table 7 CT 36.4 / Verigene unique among Flu A+SARS pairs",
+    "organisms_rvp": "Influenza A; SARS-CoV-2",
+    "organisms_mngs": "Influenza A",
+    "orthogonal_or_repeat_pcr": "Influenza A NT; SARS-CoV-2 ND",
+    "discrepancy_testing_platform": "Verigene",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TP Influenza A; TN SARS-CoV-2.",
+    "final_classification": "TP Influenza A; TN SARS-CoV-2",
+    "concise_explanation": "Table 7 row 2: RVP[Influenza A; SARS-CoV-2] vs mNGS[Influenza A]. Orthogonal/repeat testing: Influenza A NT; SARS-CoV-2 ND. Platform: Verigene. Final mNGS by DTCA: TP Influenza A; TN SARS-CoV-2.",
+    "organism_calls": [
+      {
+        "organism": "Influenza A",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "Influenza A NT; SARS-CoV-2 ND"
+      },
+      {
+        "organism": "SARS-CoV-2",
+        "final_classification": "TN",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "Influenza A NT; SARS-CoV-2 ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.5
+  },
+  {
+    "case_uid": "T7-R3",
+    "table": "7",
+    "table_row": 3,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "",
+    "id_mapping_status": "unresolved",
+    "id_mapping_evidence": "No Supp Data 1 sample with both Influenza A and RSV PCR-positive and mNGS ND. Not inventing a crosswalk.",
+    "organisms_rvp": "Influenza A; RSV",
+    "organisms_mngs": "ND",
+    "orthogonal_or_repeat_pcr": "Influenza A ND; (+) RSV B",
+    "discrepancy_testing_platform": "GenMark",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TN Influenza A; FN RSV.",
+    "final_classification": "TN Influenza A; FN RSV",
+    "concise_explanation": "Table 7 row 3: RVP[Influenza A; RSV] vs mNGS[ND]. Orthogonal/repeat testing: Influenza A ND; (+) RSV B. Platform: GenMark. Final mNGS by DTCA: TN Influenza A; FN RSV. ID mapping unresolved: No Supp Data 1 sample with both Influenza A and RSV PCR-positive and mNGS ND. Not inventing a crosswalk.",
+    "organism_calls": [
+      {
+        "organism": "Influenza A",
+        "final_classification": "TN",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "Influenza A ND; (+) RSV B"
+      },
+      {
+        "organism": "RSV",
+        "final_classification": "FN",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "Influenza A ND; (+) RSV B"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 1.0
+  },
+  {
+    "case_uid": "T7-R4",
+    "table": "7",
+    "table_row": 4,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-64",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: Flu A (H3)+ and SARS-CoV-2+ by PCR; mNGS SARS-CoV-2+ only (Influenza A absent)",
+    "organisms_rvp": "Influenza A; SARS-CoV-2",
+    "organisms_mngs": "SARS-CoV-2",
+    "orthogonal_or_repeat_pcr": "Influenza A ND; SARS-CoV-2 NT",
+    "discrepancy_testing_platform": "MagPix",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TP SARS-CoV-2; TN Influenza A.",
+    "final_classification": "TP SARS-CoV-2; TN Influenza A",
+    "concise_explanation": "Table 7 row 4: RVP[Influenza A; SARS-CoV-2] vs mNGS[SARS-CoV-2]. Orthogonal/repeat testing: Influenza A ND; SARS-CoV-2 NT. Platform: MagPix. Final mNGS by DTCA: TP SARS-CoV-2; TN Influenza A.",
+    "organism_calls": [
+      {
+        "organism": "SARS-CoV-2",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "Influenza A ND; SARS-CoV-2 NT"
+      },
+      {
+        "organism": "Influenza A",
+        "final_classification": "TN",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "Influenza A ND; SARS-CoV-2 NT"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.5
+  },
+  {
+    "case_uid": "T7-R5",
+    "table": "7",
+    "table_row": 5,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-99",
+    "id_mapping_status": "probable",
+    "id_mapping_evidence": "Supp Data 1 Rhinovirus/Enterovirus+ with mNGS ND and comment 'False Negative'; Table 7 has two such rows (MFI 52 vs NA). Assigned to P-NP-99/P-NP-100 as an unordered pair; MFI cannot distinguish them from published files alone.",
+    "organisms_rvp": "Rhinovirus/Enterovirus",
+    "organisms_mngs": "ND",
+    "orthogonal_or_repeat_pcr": "Rhinovirus/Enterovirus ND",
+    "discrepancy_testing_platform": "MagPix",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TN Rhinovirus/Enterovirus.",
+    "final_classification": "TN Rhinovirus/Enterovirus",
+    "concise_explanation": "Table 7 row 5: RVP[Rhinovirus/Enterovirus] vs mNGS[ND]. Orthogonal/repeat testing: Rhinovirus/Enterovirus ND. Platform: MagPix. Final mNGS by DTCA: TN Rhinovirus/Enterovirus. ID mapping probable: Supp Data 1 Rhinovirus/Enterovirus+ with mNGS ND and comment 'False Negative'; Table 7 has two such rows (MFI 52 vs NA). Assigned to P-NP-99/P-NP-100 as an unordered pair; MFI cannot distinguish them from published files alone.",
+    "organism_calls": [
+      {
+        "organism": "Rhinovirus/Enterovirus",
+        "final_classification": "TN",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "Rhinovirus/Enterovirus ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 1.0
+  },
+  {
+    "case_uid": "T7-R6",
+    "table": "7",
+    "table_row": 6,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-100",
+    "id_mapping_status": "probable",
+    "id_mapping_evidence": "Paired with Table 7 row 5 / P-NP-99; same Supp Data 1 pattern. Row-to-ID order is not uniquely determined.",
+    "organisms_rvp": "Rhinovirus/Enterovirus",
+    "organisms_mngs": "ND",
+    "orthogonal_or_repeat_pcr": "Rhinovirus/Enterovirus ND",
+    "discrepancy_testing_platform": "MagPix",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TN Rhinovirus/Enterovirus.",
+    "final_classification": "TN Rhinovirus/Enterovirus",
+    "concise_explanation": "Table 7 row 6: RVP[Rhinovirus/Enterovirus] vs mNGS[ND]. Orthogonal/repeat testing: Rhinovirus/Enterovirus ND. Platform: MagPix. Final mNGS by DTCA: TN Rhinovirus/Enterovirus. ID mapping probable: Paired with Table 7 row 5 / P-NP-99; same Supp Data 1 pattern. Row-to-ID order is not uniquely determined.",
+    "organism_calls": [
+      {
+        "organism": "Rhinovirus/Enterovirus",
+        "final_classification": "TN",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "Rhinovirus/Enterovirus ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 1.0
+  },
+  {
+    "case_uid": "T7-R7",
+    "table": "7",
+    "table_row": 7,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-101",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1 unique Rhinovirus/Enterovirus + Parainfluenza 2+ with mNGS Rhinovirus A only",
+    "organisms_rvp": "Rhinovirus/Enterovirus; Parainfluenza 2",
+    "organisms_mngs": "Rhinovirus A",
+    "orthogonal_or_repeat_pcr": "(+) Rhinovirus/Enterovirus; Parainfluenza 2 ND",
+    "discrepancy_testing_platform": "MagPix",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TP Rhinovirus/Enterovirus; TN Parainfluenza 2.",
+    "final_classification": "TP Rhinovirus/Enterovirus; TN Parainfluenza 2",
+    "concise_explanation": "Table 7 row 7: RVP[Rhinovirus/Enterovirus; Parainfluenza 2] vs mNGS[Rhinovirus A]. Orthogonal/repeat testing: (+) Rhinovirus/Enterovirus; Parainfluenza 2 ND. Platform: MagPix. Final mNGS by DTCA: TP Rhinovirus/Enterovirus; TN Parainfluenza 2.",
+    "organism_calls": [
+      {
+        "organism": "Rhinovirus/Enterovirus",
+        "final_classification": "TP",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Rhinovirus/Enterovirus; Parainfluenza 2 ND"
+      },
+      {
+        "organism": "Parainfluenza 2",
+        "final_classification": "TN",
+        "fractional_sample_weight": 0.5,
+        "orthogonal_or_repeat_testing": "(+) Rhinovirus/Enterovirus; Parainfluenza 2 ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 0.5
+  },
+  {
+    "case_uid": "T7-R8",
+    "table": "7",
+    "table_row": 8,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "P-NP-109",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: Metapneumovirus+; mNGS respiratory virus not detected; comment False Negative",
+    "organisms_rvp": "Metapneumovirus",
+    "organisms_mngs": "ND",
+    "orthogonal_or_repeat_pcr": "(+) Metapneumovirus",
+    "discrepancy_testing_platform": "GenMark",
+    "chart_adjudication": "Final classification(s) after DTCA: FN Metapneumovirus.",
+    "final_classification": "FN Metapneumovirus",
+    "concise_explanation": "Table 7 row 8: RVP[Metapneumovirus] vs mNGS[ND]. Orthogonal/repeat testing: (+) Metapneumovirus. Platform: GenMark. Final mNGS by DTCA: FN Metapneumovirus.",
+    "organism_calls": [
+      {
+        "organism": "Metapneumovirus",
+        "final_classification": "FN",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "(+) Metapneumovirus"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 1.0
+  },
+  {
+    "case_uid": "T7-R9",
+    "table": "7",
+    "table_row": 9,
+    "discrepancy_class": "mNGS_negative_RVP_positive",
+    "article_sample_id": "BAL105",
+    "id_mapping_status": "confident",
+    "id_mapping_evidence": "Supp Data 1: RSV A+; mNGS respiratory virus not detected (CMV only); comment False Negative; unique BAL RSV A ND pattern",
+    "organisms_rvp": "RSV A",
+    "organisms_mngs": "ND",
+    "orthogonal_or_repeat_pcr": "RSV ND",
+    "discrepancy_testing_platform": "MagPix",
+    "chart_adjudication": "DTCA used orthogonal/repeat testing and clinical review; final classification(s): TN RSV A.",
+    "final_classification": "TN RSV A",
+    "concise_explanation": "Table 7 row 9: RVP[RSV A] vs mNGS[ND]. Orthogonal/repeat testing: RSV ND. Platform: MagPix. Final mNGS by DTCA: TN RSV A.",
+    "organism_calls": [
+      {
+        "organism": "RSV A",
+        "final_classification": "TN",
+        "fractional_sample_weight": 1.0,
+        "orthogonal_or_repeat_testing": "RSV ND"
+      }
+    ],
+    "contributes_to_maintext_7_weight": 1.0
+  }
+]

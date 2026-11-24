@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-import fitz
+import pymupdf
 import pandas as pd
 
 
@@ -609,7 +609,7 @@ def expand_organism_rows(sample_rows: list[dict[str, Any]]) -> list[dict[str, An
 
 
 def verify_pdf_titles(supp_pdf: Path) -> dict[str, Any]:
-    doc = fitz.open(supp_pdf)
+    doc = pymupdf.open(supp_pdf)
     page6 = doc[5].get_text("text")
     page7 = doc[6].get_text("text")
     checks = {
@@ -630,6 +630,63 @@ def verify_pdf_titles(supp_pdf: Path) -> dict[str, Any]:
     if not checks["table7_title_has_n9"]:
         raise ValueError("Could not verify Supplementary Table 7 n=9 in PDF")
     return checks
+
+
+REQUIRED_SAMPLE_FIELDS = (
+    "discrepancy_class",
+    "rvp_organisms",
+    "mngs_organisms",
+    "discrepancy_testing",
+    "final_mngs_by_dtca",
+    "chart_adjudication",
+    "explanation",
+    "id_mapping_status",
+    "id_mapping_evidence",
+)
+
+
+def verify_sample_field_completeness(sample_df: pd.DataFrame) -> dict[str, Any]:
+    """Ensure every Table 6/7 sample has adjudication fields filled."""
+    missing: list[dict[str, Any]] = []
+    for _, row in sample_df.iterrows():
+        for field in REQUIRED_SAMPLE_FIELDS:
+            if not clean(row.get(field)):
+                missing.append(
+                    {
+                        "table": clean(row.get("table")),
+                        "table_row": int(row.get("table_row")),
+                        "field": field,
+                    }
+                )
+        # Final classification must parse into organism calls.
+        try:
+            calls = split_final_calls(clean(row.get("final_mngs_by_dtca")))
+        except ValueError as exc:
+            missing.append(
+                {
+                    "table": clean(row.get("table")),
+                    "table_row": int(row.get("table_row")),
+                    "field": "final_mngs_by_dtca",
+                    "error": str(exc),
+                }
+            )
+            continue
+        if not calls:
+            missing.append(
+                {
+                    "table": clean(row.get("table")),
+                    "table_row": int(row.get("table_row")),
+                    "field": "final_mngs_by_dtca",
+                    "error": "no organism classifications parsed",
+                }
+            )
+    if missing:
+        raise ValueError(f"Incomplete sample-level adjudication fields: {missing}")
+    return {
+        "required_fields": list(REQUIRED_SAMPLE_FIELDS),
+        "samples_checked": int(len(sample_df)),
+        "all_required_fields_present": True,
+    }
 
 
 def verify_counts(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> dict[str, Any]:
@@ -653,10 +710,13 @@ def verify_counts(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> dict[st
     # Main-text "7" reconciles as Table 7 TN+FN fractional weights (5.5+1.5),
     # while the table itself lists 9 sample rows (co-detections also carry TP halves).
     maintext7_weight = tn_weight + fn_weight
+    completeness = verify_sample_field_completeness(sample_df)
 
     return {
         "table6_sample_rows": int(len(table6)),
+        "table6_mngs_pos_rvp_neg_count": int(len(table6)),
         "table7_sample_rows": int(len(table7)),
+        "maintext_mngs_neg_rvp_pos_count": EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS,
         "expected_maintext_mngs_neg_rvp_pos": EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS,
         "table7_TN_weight": tn_weight,
         "table7_FN_weight": fn_weight,
@@ -668,6 +728,17 @@ def verify_counts(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> dict[st
         "table7_TN_plus_FN_matches_maintext_7": bool(
             abs(maintext7_weight - EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS) < 1e-9
         ),
+        "exact_counts": {
+            "mngs_positive_rvp_negative_samples": EXPECTED_TABLE6_SAMPLES,
+            "mngs_negative_rvp_positive_maintext_equivalents": EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS,
+            "table7_published_sample_rows": EXPECTED_TABLE7_SAMPLES,
+            "reconciliation": (
+                "Main-text 7 = Table 7 TN fractional weight 5.5 + FN fractional "
+                "weight 1.5; Table 7 lists 9 sample rows because co-detections "
+                "also contribute TP halves that are not part of the 7."
+            ),
+        },
+        "sample_field_completeness": completeness,
         "pre_dtca_sensitivity": {
             "reported": f"{EXPECTED_PRE_DTCA_SENSITIVITY[0]} of {EXPECTED_PRE_DTCA_SENSITIVITY[1]}",
             "implied_fn_samples": EXPECTED_PRE_DTCA_SENSITIVITY[1]
@@ -708,6 +779,101 @@ def verify_counts(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> dict[st
     }
 
 
+def build_unresolved_id_ledger(sample_df: pd.DataFrame) -> pd.DataFrame:
+    """Machine-readable ledger of non-confident sample-ID joins."""
+    rows: list[dict[str, Any]] = []
+    for _, row in sample_df.iterrows():
+        status = clean(row.get("id_mapping_status"))
+        if status == "confident":
+            continue
+        rows.append(
+            {
+                "table": clean(row.get("table")),
+                "table_row": int(row.get("table_row")),
+                "discrepancy_class": clean(row.get("discrepancy_class")),
+                "article_sample_id": clean(row.get("article_sample_id")),
+                "id_mapping_status": status,
+                "id_mapping_evidence": clean(row.get("id_mapping_evidence")),
+                "rvp_organisms": clean(row.get("rvp_organisms")),
+                "mngs_organisms": clean(row.get("mngs_organisms")),
+                "final_mngs_by_dtca": clean(row.get("final_mngs_by_dtca")),
+                "np_nuc_crosswalk_note": (
+                    "No published NP/NUC↔P-NP crosswalk; do not invent lab-ID "
+                    "aliases for this discrepancy row."
+                ),
+            }
+        )
+    return pd.DataFrame(rows)
+
+
+def build_maintext7_equivalents(organism_df: pd.DataFrame) -> pd.DataFrame:
+    """Organism calls whose fractional weights sum to the main-text 7."""
+    t7 = organism_df[organism_df["table"] == "7"].copy()
+    equivalents = t7[t7["final_classification"].isin(["TN", "FN"])].copy()
+    equivalents.insert(0, "contributes_to_maintext_7", True)
+    equivalents["maintext7_component"] = equivalents["final_classification"].map(
+        {"TN": "reclassified_true_negative", "FN": "residual_false_negative"}
+    )
+    return equivalents.reset_index(drop=True)
+
+
+def build_case_cards(sample_df: pd.DataFrame, organism_df: pd.DataFrame) -> list[dict[str, Any]]:
+    """Compact per-sample cards for reporting agents."""
+    cards: list[dict[str, Any]] = []
+    for _, sample in sample_df.iterrows():
+        table = clean(sample.get("table"))
+        table_row = int(sample.get("table_row"))
+        org_rows = organism_df[
+            (organism_df["table"] == table) & (organism_df["table_row"] == table_row)
+        ]
+        organism_calls = [
+            {
+                "organism": clean(org.get("organism")),
+                "final_classification": clean(org.get("final_classification")),
+                "fractional_sample_weight": float(org.get("fractional_sample_weight")),
+                "orthogonal_or_repeat_testing": clean(org.get("orthogonal_or_repeat_testing")),
+            }
+            for _, org in org_rows.iterrows()
+        ]
+        cards.append(
+            {
+                "case_uid": f"T{table}-R{table_row}",
+                "table": table,
+                "table_row": table_row,
+                "discrepancy_class": clean(sample.get("discrepancy_class")),
+                "article_sample_id": clean(sample.get("article_sample_id")),
+                "id_mapping_status": clean(sample.get("id_mapping_status")),
+                "id_mapping_evidence": clean(sample.get("id_mapping_evidence")),
+                "organisms_rvp": clean(sample.get("rvp_organisms")),
+                "organisms_mngs": clean(sample.get("mngs_organisms")),
+                "orthogonal_or_repeat_pcr": clean(sample.get("discrepancy_testing")),
+                "discrepancy_testing_platform": clean(
+                    sample.get("discrepancy_testing_platform")
+                ),
+                "chart_adjudication": clean(sample.get("chart_adjudication")),
+                "final_classification": clean(sample.get("final_mngs_by_dtca")),
+                "concise_explanation": clean(sample.get("explanation")),
+                "organism_calls": organism_calls,
+                "contributes_to_maintext_7_weight": float(
+                    org_rows.loc[
+                        org_rows["final_classification"].isin(["TN", "FN"]),
+                        "fractional_sample_weight",
+                    ].sum()
+                )
+                if table == "7"
+                else 0.0,
+            }
+        )
+    return cards
+
+
+def relpath(path: Path, project_root: Path) -> str:
+    try:
+        return path.resolve().relative_to(project_root.resolve()).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def write_readme(path: Path, verification: dict[str, Any]) -> None:
     lines = [
         "# Article discrepancy reconstruction",
@@ -721,11 +887,15 @@ def write_readme(path: Path, verification: dict[str, Any]) -> None:
         f"- Supplementary Data 1: {SUPP_DATA_URL}",
         "",
         "## Exact counts",
-        f"- Table 6 sample rows (mNGS+/RVP-): {verification['table6_sample_rows']} (paper n=14)",
-        f"- Table 7 sample rows: {verification['table7_sample_rows']} (table title n=9)",
-        f"- Main-text mNGS-/RVP+ count of 7 reconciles as Table 7 TN+FN fractional "
-        f"weight {verification['table7_TN_plus_FN_weight']} "
-        f"(TN {verification['table7_TN_weight']} + FN {verification['table7_FN_weight']}; "
+        f"- mNGS+/RVP- samples (Table 6): "
+        f"{verification['exact_counts']['mngs_positive_rvp_negative_samples']}",
+        f"- mNGS-/RVP+ main-text equivalents: "
+        f"{verification['exact_counts']['mngs_negative_rvp_positive_maintext_equivalents']}",
+        f"- Table 7 published sample rows: "
+        f"{verification['exact_counts']['table7_published_sample_rows']} "
+        f"(title n=9; TN+FN weight "
+        f"{verification['table7_TN_plus_FN_weight']} = "
+        f"TN {verification['table7_TN_weight']} + FN {verification['table7_FN_weight']}; "
         f"match={verification['table7_TN_plus_FN_matches_maintext_7']})",
         f"- Pre-DTCA sensitivity misses: "
         f"{verification['pre_dtca_sensitivity']['implied_fn_samples']} = 110-103",
@@ -736,6 +906,9 @@ def write_readme(path: Path, verification: dict[str, Any]) -> None:
         "- `supplementary_table7_discrepancies.csv`",
         "- `article_discrepancies_sample_level.csv`",
         "- `article_discrepancies_organism_level.csv`",
+        "- `article_discrepancies_maintext7_tn_fn.csv`",
+        "- `article_discrepancies_unresolved_ids.csv`",
+        "- `../results/intermediate/discrepancy_case_cards.json`",
         "- `../results/intermediate/discrepancy_reconstruction_summary.json`",
         "",
         "## Unresolved issues preserved",
@@ -744,6 +917,8 @@ def write_readme(path: Path, verification: dict[str, Any]) -> None:
         "- Table 7 title n=9 vs main-text n=7: reconciled as TN+FN fractional weights 5.5+1.5=7.",
         "- P-NP-99/P-NP-100 cannot be ordered against the two rhinovirus Table 7 rows.",
         "- Influenza A + RSV / mNGS ND Table 7 row has no Supp Data 1 match.",
+        "- NP/NUC↔P-NP lab-ID crosswalks are unpublished; not invented here "
+        "(see `unresolved_identifier_mappings.csv`).",
         "",
     ]
     path.write_text("\n".join(lines), encoding="utf-8")
@@ -772,6 +947,9 @@ def build_artifacts(project_root: Path) -> dict[str, Any]:
     sample_rows = [attach_clinical(row, lookup) for row in TABLE6_ROWS + TABLE7_ROWS]
     sample_df = pd.DataFrame(sample_rows)
     organism_df = pd.DataFrame(expand_organism_rows(sample_rows))
+    unresolved_df = build_unresolved_id_ledger(sample_df)
+    maintext7_df = build_maintext7_equivalents(organism_df)
+    case_cards = build_case_cards(sample_df, organism_df)
 
     table6_df = sample_df[sample_df["table"] == "6"].copy()
     table7_df = sample_df[sample_df["table"] == "7"].copy()
@@ -780,49 +958,72 @@ def build_artifacts(project_root: Path) -> dict[str, Any]:
     table7_path = norm_dir / "supplementary_table7_discrepancies.csv"
     sample_path = norm_dir / "article_discrepancies_sample_level.csv"
     organism_path = norm_dir / "article_discrepancies_organism_level.csv"
+    unresolved_path = norm_dir / "article_discrepancies_unresolved_ids.csv"
+    maintext7_path = norm_dir / "article_discrepancies_maintext7_tn_fn.csv"
     readme_path = norm_dir / "README_discrepancy_reconstruction.md"
+    case_cards_path = inter_dir / "discrepancy_case_cards.json"
     summary_path = inter_dir / "discrepancy_reconstruction_summary.json"
 
     table6_df.to_csv(table6_path, index=False)
     table7_df.to_csv(table7_path, index=False)
     sample_df.to_csv(sample_path, index=False)
     organism_df.to_csv(organism_path, index=False)
+    unresolved_df.to_csv(unresolved_path, index=False)
+    maintext7_df.to_csv(maintext7_path, index=False)
+    case_cards_path.write_text(json.dumps(case_cards, indent=2), encoding="utf-8")
 
     verification = verify_counts(sample_df, organism_df)
     write_readme(readme_path, verification)
+
+    maintext7_weight = float(maintext7_df["fractional_sample_weight"].sum())
+    if abs(maintext7_weight - EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS) >= 1e-9:
+        raise ValueError(
+            f"Main-text 7 equivalents sum to {maintext7_weight}, expected "
+            f"{EXPECTED_MAINTEXT_MNGS_NEG_RVP_POS}"
+        )
 
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "scope": (
             "reconstruct-discrepancies only; no FASTQ audit and no final report"
         ),
+        "exact_counts": {
+            "mngs_positive_rvp_negative": 14,
+            "mngs_negative_rvp_positive_maintext": 7,
+            "table7_sample_rows_published": 9,
+            "maintext7_tn_fn_weight": maintext7_weight,
+        },
         "sources": {
             "article": ARTICLE_URL,
             "supplementary_information": {
                 "url": SUPP_INFO_URL,
-                "local_path": supp_pdf.as_posix(),
+                "local_path": relpath(supp_pdf, project_root),
                 "sha256": digest(supp_pdf),
             },
             "supplementary_data_1": {
                 "url": SUPP_DATA_URL,
-                "local_path": supp_xlsx.as_posix(),
+                "local_path": relpath(supp_xlsx, project_root),
                 "sha256": digest(supp_xlsx),
             },
-            "clinical_metadata_samples": clinical_samples.as_posix(),
+            "clinical_metadata_samples": relpath(clinical_samples, project_root),
         },
         "pdf_verification": pdf_checks,
         "verification": verification,
         "outputs": {
-            "table6": table6_path.as_posix(),
-            "table7": table7_path.as_posix(),
-            "sample_level": sample_path.as_posix(),
-            "organism_level": organism_path.as_posix(),
-            "readme": readme_path.as_posix(),
-            "summary": summary_path.as_posix(),
+            "table6": relpath(table6_path, project_root),
+            "table7": relpath(table7_path, project_root),
+            "sample_level": relpath(sample_path, project_root),
+            "organism_level": relpath(organism_path, project_root),
+            "maintext7_tn_fn": relpath(maintext7_path, project_root),
+            "unresolved_ids": relpath(unresolved_path, project_root),
+            "case_cards": relpath(case_cards_path, project_root),
+            "readme": relpath(readme_path, project_root),
+            "summary": relpath(summary_path, project_root),
         },
         "key_findings": [
-            "Supplementary Table 6 contains exactly 14 mNGS-positive/RVP-negative samples.",
-            "Supplementary Table 7 lists 9 sample rows; fractional TN+FN weights are 5.5+1.5=7, matching the main-text mNGS-/RVP+ count and DTCA summary.",
+            "Exact counts verified: 14 mNGS+/RVP- (Table 6) and 7 mNGS-/RVP+ main-text equivalents (Table 7 TN 5.5 + FN 1.5).",
+            "Supplementary Table 7 publishes 9 sample rows; co-detection TP halves are excluded from the main-text 7.",
+            "All 23 Table 6+7 sample rows have organism, orthogonal/repeat PCR, chart adjudication, final classification, and concise explanation fields.",
             "Pre-DTCA sensitivity 103/110 implies 7 FN sample-equivalents; post-DTCA OPA is 187/191 (97.9%).",
             "Confident Supp Data 1 joins: P-NP-1, P-NP-6, P-NP-113, P-NP-19, P-NP-33, P-NP-64, P-NP-101, P-NP-109, BAL105.",
             "Probable unordered pair: P-NP-99 and P-NP-100 for the two rhinovirus/enterovirus Table 7 ND rows.",
@@ -833,6 +1034,7 @@ def build_artifacts(project_root: Path) -> dict[str, Any]:
             "Table 6 row 3 candidate P-NP-36 conflicts on whether mNGS detected RSV.",
             "Table 7 Influenza A+RSV / mNGS ND row has no Supp Data 1 match.",
             "P-NP-99 vs P-NP-100 cannot be uniquely ordered to Table 7 rows 5 vs 6.",
+            "Published Zenodo/article files provide no NP/NUC↔P-NP crosswalk; unresolved lab IDs remain flagged in unresolved_identifier_mappings.csv and were not invented.",
         ],
     }
     summary_path.write_text(json.dumps(summary, indent=2), encoding="utf-8")
